@@ -10,6 +10,7 @@ import random
 import argparse
 
 
+
 class xhibit:
     """A utility to showff your ascii arts and sytem specs."""
 
@@ -69,6 +70,12 @@ class xhibit:
 
         # Desktop Environment/Window Manager
         de_wm = os.environ.get("XDG_CURRENT_DESKTOP")
+        if not de_wm:
+            p=subprocess.Popen(["wmctrl","-m"], stdout=subprocess.PIPE)
+            out, err = p.communicate()
+            de_wm=str(out).split("\\n")[0]
+            k=de_wm.find(" ")
+            de_wm=de_wm[k:].lstrip().rstrip()
         self.info.append(de_wm)
 
         # UPTIME
