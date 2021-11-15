@@ -29,6 +29,14 @@ chmod +x ./xhibit.py
 -rcn RCN Randomize Characters.(t or f)
 ```
 
+> Characters available
+
+-   monalisa
+-   egyptian
+-   casper
+-   fairy
+-   dragon
+
 > Example commands
 
 > **To Choose gruvbox Colorscheme and casper**
@@ -37,7 +45,7 @@ chmod +x ./xhibit.py
 xhibit.py -cs gruvbox -cn casper
 ```
 
-![example1](./ex1.png)
+![example1](./casper.png)
 
 > **To Choose dracula Colorscheme and fairy**
 
@@ -45,7 +53,7 @@ xhibit.py -cs gruvbox -cn casper
 xhibit.py -cs dracula -cn fairy
 ```
 
-![example1](./ex2.png)
+![example1](./fairy.png)
 
 > **To randomize colorscheme and character**
 
@@ -53,4 +61,4 @@ xhibit.py -cs dracula -cn fairy
 xhibit.py -rcs t -rcn t
 ```
 
-![example2](./ex3.png)
+![example2](./monalisa.png)
