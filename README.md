@@ -6,6 +6,7 @@
 
 ```
 pip install tcolorpy
+sudo pacman -S --noconfirm wmctrl
 ```
 
 ### INSTALLATION
