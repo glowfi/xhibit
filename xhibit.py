@@ -103,17 +103,28 @@ class xhibit:
         uptime = time_format(uptime)
         self.info.append(uptime)
 
+
         # CPU GPU
-        cpu_gpu = (
+        cpu = (
             subprocess.check_output(["cat", "/proc/cpuinfo"])
             .decode("utf-8")
             .split("\n")[4]
             .split(":")[1]
             .lstrip()
-            .split(" ")
+            # .split(" ")
         )
-        cpu = " ".join(cpu_gpu[0:2])
-        gpu = " ".join(cpu_gpu[6:])
+
+        gpu = (
+            subprocess.run(
+                ["lspci |grep VGA|cut -d ':' -f 3|xargs"],
+                stdout=subprocess.PIPE,
+                shell=True,
+            )
+            .stdout.decode("utf-8")
+            .lstrip()
+            .rstrip()
+        )
+
         self.info.append(cpu)
         self.info.append(gpu)
 
