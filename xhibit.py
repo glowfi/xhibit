@@ -69,14 +69,22 @@ class xhibit:
         self.info.append(shell)
 
         # Desktop Environment/Window Manager
-        de_wm = os.environ.get("XDG_CURRENT_DESKTOP")
-        if not de_wm:
+        de = os.environ.get("XDG_CURRENT_DESKTOP")
+        wm=None
+        
+        if de:
+            self.info.append(de)
+        
+        elif not de:
             p=subprocess.Popen(["wmctrl","-m"], stdout=subprocess.PIPE)
             out, err = p.communicate()
-            de_wm=str(out).split("\\n")[0]
-            k=de_wm.find(" ")
-            de_wm=de_wm[k:].lstrip().rstrip()
-        self.info.append(de_wm)
+            wm=str(out).split("\\n")[0]
+            k=wm.find(" ")
+            wm=wm[k:].lstrip().rstrip()
+            self.info.append(wm)
+        
+        elif not de and not wm:
+            self.info.append("No DE/WM Running")
 
         # UPTIME
         uptime = float(
