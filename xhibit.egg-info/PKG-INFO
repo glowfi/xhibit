@@ -6,11 +6,11 @@ Home-page: git clone https://github.com/glowfi/xhibit
 Author: glowfi
 Author-email: 
 License: GPLv3+
-Keywords: system-information ascii-art
+Keywords: system-information ascii-art commandline
 Platform: UNKNOWN
-Classifier: Development Status :: 5 - Production/Stable
-Classifier: Operation System :: GNU/Linux
-Classifier: Intended Audience :: Developers
+Classifier: Development Status :: 4 - Beta
+Classifier: Operation System :: Linux
+Classifier: Intended Audience :: End Users/Desktop
 Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
 Classifier: Programming Language :: Python :: 3.9.9
 License-File: LICENSE
@@ -87,6 +87,6 @@ Change Log
 
 0.0.1 (01/12/2021)
 ---------------------
-- First Release
+- First Beta Release
 
 

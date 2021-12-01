@@ -4,4 +4,4 @@ Change Log
 
 0.0.1 (01/12/2021)
 ---------------------
-- First Release
+- First Beta Release
