@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: xhibit
-Version: 0.1.1
+Version: 0.1.2
 Summary: A python script to exhibit your ascii arts and sytem specs
 Home-page: https://github.com/glowfi/xhibit
 Author: glowfi
@@ -19,20 +19,10 @@ License-File: LICENSE
 
 > **Exhibit your ASCII ART and system specs**
 
-### DEPENDENCIES
-
-```
-pip install tcolorpy
-sudo pacman -S --noconfirm wmctrl
-```
-
 ### INSTALLATION
 
 ```
-git clone https://github.com/glowfi/xhibit
-cd xhibit
-chmod +x ./xhibit.py
-./xhibit.py
+pip install xhibit
 ```
 
 ### HOW TO USE

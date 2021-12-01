@@ -3,8 +3,8 @@
 # Module Imports
 import random
 import argparse
-import ascii
-import sysinfo
+from Exhibition.ascii import *
+from Exhibition.sysinfo import *
 
 
 class xhibit:

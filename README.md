@@ -2,20 +2,10 @@
 
 > **Exhibit your ASCII ART and system specs**
 
-### DEPENDENCIES
-
-```
-pip install tcolorpy
-sudo pacman -S --noconfirm wmctrl
-```
-
 ### INSTALLATION
 
 ```
-git clone https://github.com/glowfi/xhibit
-cd xhibit
-chmod +x ./xhibit.py
-./xhibit.py
+pip install xhibit
 ```
 
 ### HOW TO USE
