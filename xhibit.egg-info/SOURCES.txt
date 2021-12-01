@@ -1,0 +1,13 @@
+CHANGELOG.txt
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+Exhibition/__init__.py
+Exhibition/ascii.py
+Exhibition/sysinfo.py
+xhibit.egg-info/PKG-INFO
+xhibit.egg-info/SOURCES.txt
+xhibit.egg-info/dependency_links.txt
+xhibit.egg-info/requires.txt
+xhibit.egg-info/top_level.txt
