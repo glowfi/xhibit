@@ -1,10 +1,14 @@
-#!/usr/bin/python
-
 # Module Imports
 import random
 import argparse
-from Exhibition.ascii import *
-from Exhibition.sysinfo import *
+import sys
+
+# import ascii
+# import sysinfo
+from Exhibition import ascii
+from Exhibition import sysinfo
+
+# from Exhibition.ascii import ...
 
 
 class xhibit:
@@ -96,14 +100,21 @@ class xhibit:
             eval(f"{self.character_name}")(self.info, self.field_colors)
 
 
-parser = argparse.ArgumentParser()
-parser.add_argument("-cs", type=str, default="gruvbox", help="Colorscheme to display.")
-parser.add_argument("-rcs", type=str, default="f", help="Randomize Colorschemes.")
-parser.add_argument("-cn", type=str, default="monalisa", help="Specify Character name.")
-parser.add_argument("-rcn", type=str, default="f", help="Randomize Characters.")
-args = parser.parse_args()
+if __name__ == "Exhibition":
+    pass
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "-cs", type=str, default="gruvbox", help="Colorscheme to display."
+    )
+    parser.add_argument("-rcs", type=str, default="f", help="Randomize Colorschemes.")
+    parser.add_argument(
+        "-cn", type=str, default="monalisa", help="Specify Character name."
+    )
+    parser.add_argument("-rcn", type=str, default="f", help="Randomize Characters.")
+    args = parser.parse_args()
 
-obj = xhibit(args.cs, args.rcs, args.cn, args.rcn)
-obj.colorscheme()
-obj.specs()
-obj.ascii_art()
+    obj = xhibit(args.cs, args.rcs, args.cn, args.rcn)
+    obj.colorscheme()
+    obj.specs()
+    obj.ascii_art()
+    sys.exit()
