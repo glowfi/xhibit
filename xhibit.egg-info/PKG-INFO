@@ -2,10 +2,11 @@ Metadata-Version: 2.1
 Name: xhibit
 Version: 0.0.1
 Summary: A python script to exhibit your ascii arts and sytem specs
-Home-page: UNKNOWN
+Home-page: git clone https://github.com/glowfi/xhibit
 Author: glowfi
 Author-email: 
 License: GPLv3+
+Keywords: system-information ascii-art
 Platform: UNKNOWN
 Classifier: Development Status :: 5 - Production/Stable
 Classifier: Operation System :: GNU/Linux
