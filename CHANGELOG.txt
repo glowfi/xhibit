@@ -5,3 +5,7 @@ Change Log
 0.0.1 (01/12/2021)
 ---------------------
 - First Beta Release
+
+0.0.1 (02/12/2021)
+---------------------
+- First Stable Release

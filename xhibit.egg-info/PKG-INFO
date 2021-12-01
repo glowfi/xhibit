@@ -1,12 +1,12 @@
 Metadata-Version: 2.1
 Name: xhibit
-Version: 0.1.3
+Version: 1.0.0
 Summary: A python script to exhibit your ascii arts and sytem specs
 Home-page: https://github.com/glowfi/xhibit
 Author: glowfi
 License: UNKNOWN
 Platform: UNKNOWN
-Classifier: Development Status :: 4 - Beta
+Classifier: Development Status :: 5 - Production/Stable
 Classifier: Operating System :: POSIX :: Linux
 Classifier: Intended Audience :: End Users/Desktop
 Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
@@ -49,7 +49,7 @@ pip install xhibit
 > **To Choose gruvbox Colorscheme and casper**
 
 ```
-xhibit.py -cs gruvbox -cn casper
+xhibit -cs gruvbox -cn casper
 ```
 
 ![example1](casper.png)
@@ -57,7 +57,7 @@ xhibit.py -cs gruvbox -cn casper
 > **To Choose dracula Colorscheme and fairy**
 
 ```
-xhibit.py -cs dracula -cn fairy
+xhibit -cs dracula -cn fairy
 ```
 
 ![example1](fairy.png)
@@ -65,7 +65,7 @@ xhibit.py -cs dracula -cn fairy
 > **To randomize colorscheme and character**
 
 ```
-xhibit.py -rcs t -rcn t
+xhibit -rcs t -rcn t
 ```
 
 ![example2](monalisa.png)
