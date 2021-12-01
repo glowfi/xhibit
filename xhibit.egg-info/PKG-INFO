@@ -1,3 +1,20 @@
+Metadata-Version: 2.1
+Name: xhibit
+Version: 0.1.1
+Summary: A python script to exhibit your ascii arts and sytem specs
+Home-page: https://github.com/glowfi/xhibit
+Author: glowfi
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
 ### XHIBIT
 
 > **Exhibit your ASCII ART and system specs**
@@ -62,3 +79,5 @@ xhibit.py -rcs t -rcn t
 ```
 
 ![example2](monalisa.png)
+
+
