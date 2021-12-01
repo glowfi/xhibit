@@ -32,7 +32,7 @@ pip install xhibit
 > **To Choose gruvbox Colorscheme and casper**
 
 ```
-xhibit.py -cs gruvbox -cn casper
+xhibit -cs gruvbox -cn casper
 ```
 
 ![example1](casper.png)
@@ -40,7 +40,7 @@ xhibit.py -cs gruvbox -cn casper
 > **To Choose dracula Colorscheme and fairy**
 
 ```
-xhibit.py -cs dracula -cn fairy
+xhibit -cs dracula -cn fairy
 ```
 
 ![example1](fairy.png)
@@ -48,7 +48,7 @@ xhibit.py -cs dracula -cn fairy
 > **To randomize colorscheme and character**
 
 ```
-xhibit.py -rcs t -rcn t
+xhibit -rcs t -rcn t
 ```
 
 ![example2](monalisa.png)
