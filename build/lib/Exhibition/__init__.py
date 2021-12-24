@@ -20,6 +20,8 @@ class xhibit:
         self.info = []
         self.cschemes = ["gruvbox", "dracula"]
         self.field_colors = None
+        self.cpu = args[4]
+        self.gpu = args[5]
 
         # User variables
         self.user_colors = args[0]
@@ -78,10 +80,16 @@ class xhibit:
         self.info.append(sysinfo.get_uptime())
 
         # CPU
-        self.info.append(sysinfo.get_cpu())
+        if not self.cpu:
+            self.info.append(sysinfo.get_cpu())
+        else:
+            self.info.append(self.cpu)
 
         # GPU
-        self.info.append(sysinfo.get_gpu())
+        if not self.gpu:
+            self.info.append(sysinfo.get_gpu())
+        else:
+            self.info.append(self.gpu)
 
     def ascii_art(self):
 
@@ -113,7 +121,13 @@ if __name__ == "Exhibition":
     parser.add_argument("-rcn", type=str, default="f", help="Randomize Characters.")
     args = parser.parse_args()
 
-    obj = xhibit(args.cs, args.rcs, args.cn, args.rcn)
+    parser.add_argument("-cpu", type=str, default="", help="Mention Cpu.")
+    args = parser.parse_args()
+
+    parser.add_argument("-gpu", type=str, default="", help="Mention Gpu.")
+    args = parser.parse_args()
+
+    obj = xhibit(args.cs, args.rcs, args.cn, args.rcn, args.cpu, args.gpu)
     obj.colorscheme()
     obj.specs()
     obj.ascii_art()
