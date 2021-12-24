@@ -13,10 +13,16 @@ pip install xhibit
 > Arguments available
 
 ```
--cs CS Colorscheme to display (dracula or gruvbox).
--rcs RCS Randomize Colorschemes.(t or f)
--cn CN Specify Character name (dragon,monalisa,casper,egyptian,fairy).
--rcn RCN Randomize Characters.(t or f)
+usage: xhibit [-h] [-cs CS] [-rcs RCS] [-cn CN] [-rcn RCN] [-cpu CPU] [-gpu GPU]
+
+options:
+  -h, --help  show this help message and exit
+  -cs CS      Colorscheme to display.
+  -rcs RCS    Randomize Colorschemes.
+  -cn CN      Specify Character name.
+  -rcn RCN    Randomize Characters.
+  -cpu CPU    Mention Cpu.
+  -gpu GPU    Mention Gpu.
 ```
 
 > Characters available

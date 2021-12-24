@@ -119,11 +119,7 @@ if __name__ == "Exhibition":
         "-cn", type=str, default="monalisa", help="Specify Character name."
     )
     parser.add_argument("-rcn", type=str, default="f", help="Randomize Characters.")
-    args = parser.parse_args()
-
     parser.add_argument("-cpu", type=str, default="", help="Mention Cpu.")
-    args = parser.parse_args()
-
     parser.add_argument("-gpu", type=str, default="", help="Mention Gpu.")
     args = parser.parse_args()
 
