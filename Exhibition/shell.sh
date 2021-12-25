@@ -261,7 +261,7 @@ get_gpu
 
 echo "$distro $arch [$varInit]"
 echo "$kernel"
-echo "$varPkg packages"
+echo "$varPkg"
 echo "$shell"
 # echo "$storageavail / $storageused"
 # echo "$mem"
