@@ -164,7 +164,7 @@ get_cpu() {
 	speed="${speed//[[:space:]]/}"
 
 	if ((speed < 1000)); then
-		cpu="$cpu($cores) @ ${speed}MHz"
+		cpu="$cpu($cores) @${speed}MHz"
 		# cpu="$cpu($cores) cores"
 	else
 		[[ "$speed_shorthand" == "on" ]] && speed="$((speed / 100))"
