@@ -8,8 +8,6 @@ import sys
 from Exhibition import ascii
 from Exhibition import sysinfo
 
-# from Exhibition.ascii import ...
-
 
 class xhibit:
     """A utility to showff your ascii arts and sytem specs."""
@@ -62,7 +60,7 @@ class xhibit:
     def specs(self):
 
         # OSNAME
-        self.info.append(sysinfo.get_distro() + f" [{sysinfo.get_init()}]")
+        self.info.append(sysinfo.get_distro())
 
         # KERNEL
         self.info.append(sysinfo.get_kernel())
