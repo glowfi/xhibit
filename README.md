@@ -13,7 +13,7 @@ pip install xhibit
 > Arguments available
 
 ```
-usage: xhibit [-h] [-cs CS] [-rcs RCS] [-cn CN] [-rcn RCN] [-cpu CPU] [-gpu GPU]
+usage: xhibit [-h] [-cs CS] [-rcs RCS] [-cn CN] [-rcn RCN] [-cpu CPU] [-gpu GPU] [-img IMG]
 
 options:
   -h, --help  show this help message and exit
@@ -23,6 +23,7 @@ options:
   -rcn RCN    Randomize Characters.
   -cpu CPU    Mention Cpu.
   -gpu GPU    Mention Gpu.
+  -img IMG    Mention Image.
 ```
 
 > Characters available

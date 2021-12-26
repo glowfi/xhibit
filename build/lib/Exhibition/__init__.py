@@ -7,6 +7,7 @@ import sys
 # import sysinfo
 from Exhibition import ascii
 from Exhibition import sysinfo
+from Exhibition import image
 
 
 class xhibit:
@@ -20,6 +21,7 @@ class xhibit:
         self.field_colors = None
         self.cpu = args[4]
         self.gpu = args[5]
+        self.image = args[6]
 
         # User variables
         self.user_colors = args[0]
@@ -105,6 +107,9 @@ class xhibit:
         else:
             eval(f"{self.character_name}")(self.info, self.field_colors)
 
+    def disp_image(self):
+        image.display_image(self.image, self.info, self.field_colors)
+
 
 if __name__ == "Exhibition":
     pass
@@ -119,10 +124,18 @@ if __name__ == "Exhibition":
     parser.add_argument("-rcn", type=str, default="f", help="Randomize Characters.")
     parser.add_argument("-cpu", type=str, default="", help="Mention Cpu.")
     parser.add_argument("-gpu", type=str, default="", help="Mention Gpu.")
+    parser.add_argument("-img", type=str, default="", help="Mention Image.")
     args = parser.parse_args()
 
-    obj = xhibit(args.cs, args.rcs, args.cn, args.rcn, args.cpu, args.gpu)
-    obj.colorscheme()
-    obj.specs()
-    obj.ascii_art()
-    sys.exit()
+    if args.img != "":
+        obj = xhibit(args.cs, args.rcs, args.cn, args.rcn, args.cpu, args.gpu, args.img)
+        obj.colorscheme()
+        obj.specs()
+        obj.disp_image()
+        sys.exit()
+    else:
+        obj = xhibit(args.cs, args.rcs, args.cn, args.rcn, args.cpu, args.gpu, args.img)
+        obj.colorscheme()
+        obj.specs()
+        obj.ascii_art()
+        sys.exit()

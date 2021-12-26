@@ -3,6 +3,7 @@ README.md
 setup.py
 Exhibition/__init__.py
 Exhibition/ascii.py
+Exhibition/image.py
 Exhibition/sysinfo.py
 xhibit.egg-info/PKG-INFO
 xhibit.egg-info/SOURCES.txt

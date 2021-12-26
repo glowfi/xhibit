@@ -9,3 +9,8 @@ Change Log
 0.0.1 (02/12/2021)
 ---------------------
 - First Stable Release
+
+3.0.0 (26/12/2021)
+---------------------
+- Added Alpha Feature to give image (Only for kitty terminal)
+
