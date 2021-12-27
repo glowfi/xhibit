@@ -3,8 +3,6 @@ import random
 import argparse
 import sys
 
-# import ascii
-# import sysinfo
 from Exhibition import ascii
 from Exhibition import sysinfo
 from Exhibition import image
@@ -115,16 +113,30 @@ if __name__ == "Exhibition":
     pass
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "-cs", type=str, default="gruvbox", help="Colorscheme to display."
+        "-cs",
+        type=str,
+        default="gruvbox",
+        help="Colorscheme to display [dracula,gruvbox].",
     )
-    parser.add_argument("-rcs", type=str, default="f", help="Randomize Colorschemes.")
     parser.add_argument(
-        "-cn", type=str, default="monalisa", help="Specify Character name."
+        "-rcs", type=str, default="f", help="Randomize Colorschemes [t or f]."
     )
-    parser.add_argument("-rcn", type=str, default="f", help="Randomize Characters.")
-    parser.add_argument("-cpu", type=str, default="", help="Mention Cpu.")
-    parser.add_argument("-gpu", type=str, default="", help="Mention Gpu.")
-    parser.add_argument("-img", type=str, default="", help="Mention Image.")
+    parser.add_argument(
+        "-cn",
+        type=str,
+        default="monalisa",
+        help="Specify Character name [monalisa,egyptian,fairy,casper,dragon].",
+    )
+    parser.add_argument(
+        "-rcn", type=str, default="f", help="Randomize Characters [t or f]."
+    )
+    parser.add_argument(
+        "-cpu", type=str, default="", help="Mention Cpu [Custom Cpu name]."
+    )
+    parser.add_argument(
+        "-gpu", type=str, default="", help="Mention Gpu [Custom Gpu name]."
+    )
+    parser.add_argument("-img", type=str, default="", help="Image path [Image display works for kitty terminal only].")
     args = parser.parse_args()
 
     if args.img != "":

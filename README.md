@@ -8,6 +8,20 @@
 pip install xhibit
 ```
 
+### DEPENDENCIES
+
+** For Ascii art only **
+
+-   python 3.5+
+
+**For Image display**
+
+-   kitty
+-   xorg-xdpyinfo
+-   xdotool
+-   xorg-xprop
+-   xorg-xwininfo
+
 ### HOW TO USE
 
 > Arguments available
@@ -17,13 +31,13 @@ usage: xhibit [-h] [-cs CS] [-rcs RCS] [-cn CN] [-rcn RCN] [-cpu CPU] [-gpu GPU]
 
 options:
   -h, --help  show this help message and exit
-  -cs CS      Colorscheme to display.
-  -rcs RCS    Randomize Colorschemes.
-  -cn CN      Specify Character name.
-  -rcn RCN    Randomize Characters.
-  -cpu CPU    Mention Cpu.
-  -gpu GPU    Mention Gpu.
-  -img IMG    Mention Image.
+  -cs CS      Colorscheme to display [dracula,gruvbox].
+  -rcs RCS    Randomize Colorschemes [t or f].
+  -cn CN      Specify Character name [monalisa,egyptian,fairy,casper,dragon].
+  -rcn RCN    Randomize Characters [t or f].
+  -cpu CPU    Mention Cpu [Custom Cpu name].
+  -gpu GPU    Mention Gpu [Custom Gpu name].
+  -img IMG    Image path [Image display works for kitty terminal only].
 ```
 
 > Characters available

@@ -14,3 +14,7 @@ Change Log
 ---------------------
 - Added Alpha Feature to give image (Only for kitty terminal)
 
+3.5.0 (27/12/2021)
+---------------------
+- Image Support for kitty terminal released
+
