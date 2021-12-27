@@ -41,8 +41,6 @@ get_window_size() {
 	term_width="${term_width:-0}"
 }
 get_window_size
-# echo "$term_width"
-# echo "$term_height"
 
 get_term_size() {
 	# Get the terminal size in cells.
@@ -102,11 +100,12 @@ get_image_size() {
 }
 
 get_image_size
-# echo "$width"
-# echo "$height"
-# echo "$text_padding"
 
 make_thumbnail() {
+
+    # Create cache directory if does not exists
+	mkdir -p ~/.cache
+
 	[[ -z "$size" ]] && {
 		read -r og_width og_height <<<"$(identify -format "%w %h" "$wall")"
 		((og_height > og_width)) && size="$og_width" || size="$og_height"
@@ -120,7 +119,7 @@ make_thumbnail() {
 		-background "$c" \
 		-extent "${size}x${size}" \
 		-scale "${width}x${height}" \
-		~/new.png
+		~/.cache/new.png
 }
 
 make_thumbnail
@@ -128,4 +127,4 @@ make_thumbnail
 kitty +kitten icat \
 	--align left \
 	--place "$((width / font_width))x$((height / font_height))@0x0" \
-	~/new.png
+	~/.cache/new.png
