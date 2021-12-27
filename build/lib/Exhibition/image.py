@@ -1,6 +1,6 @@
 import os
-import subprocess
 from tcolorpy import tcolor
+from Exhibition import color_palette
 
 
 def display_image(image_path, info, field_colors):
@@ -18,9 +18,6 @@ def display_image(image_path, info, field_colors):
     spc = " " * 55
     print(
         tcolor(f"{spc}                      ", color=field_colors[0], styles=["bold"])
-    )
-    print(
-        tcolor(f"{spc}                      ", color=field_colors[1], styles=["bold"])
     )
     print(
         tcolor(f"{spc} os : {info[0]}       ", color=field_colors[0], styles=["bold"])
@@ -44,20 +41,17 @@ def display_image(image_path, info, field_colors):
         tcolor(f"{spc} cpu : {info[6]}      ", color=field_colors[6], styles=["bold"])
     )
     print(
-        tcolor(f"{spc} gpu : {info[7]}      ", color=field_colors[7], styles=["bold"])
+        tcolor(f"{spc} gpu : {info[7]}      ", color=field_colors[2], styles=["bold"])
     )
     print(
-        tcolor(f"{spc}                      ", color=field_colors[7], styles=["bold"])
+        tcolor(
+            f"{spc} storage : {info[8]}      ", color=field_colors[5], styles=["bold"]
+        )
     )
     print(
-        tcolor(f"{spc}                      ", color=field_colors[6], styles=["bold"])
+        tcolor(f"{spc} ram : {info[9]}      ", color=field_colors[4], styles=["bold"])
     )
-    print(
-        tcolor(f"{spc}                      ", color=field_colors[0], styles=["bold"])
-    )
-    print(
-        tcolor(f"{spc}                      ", color=field_colors[1], styles=["bold"])
-    )
+    color_palette.color_test("image")
 
     # Put the cursor at the end of terminal's row
     call_with_args = "output=$(tput lines);tput cup $output 0"

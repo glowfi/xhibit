@@ -7,6 +7,7 @@ import os
 from Exhibition import ascii
 from Exhibition import sysinfo
 from Exhibition import image
+from Exhibition import color_palette
 
 
 class xhibit:
@@ -90,6 +91,12 @@ class xhibit:
         else:
             self.info.append(self.gpu)
 
+        # STORAGE
+        self.info.append(sysinfo.get_storage())
+
+        # RAM
+        self.info.append(sysinfo.get_ram())
+
     def ascii_art(self):
 
         # Reading ASCII characters
@@ -103,8 +110,10 @@ class xhibit:
             characters_names = ["dragon", "monalisa", "casper", "egyptian", "fairy"]
             charac = random.choice(characters_names)
             eval(f"{charac}")(self.info, self.field_colors)
+            color_palette.color_test("ascii")
         else:
             eval(f"{self.character_name}")(self.info, self.field_colors)
+            color_palette.color_test("ascii")
 
     def disp_image(self):
         image.display_image(self.image, self.info, self.field_colors)

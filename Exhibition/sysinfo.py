@@ -1,6 +1,5 @@
 import os
 import subprocess
-import platform
 
 # Getting Path
 shell_loc = os.path.realpath(__file__)
@@ -44,3 +43,11 @@ def get_cpu():
 
 def get_gpu():
     return info[7]
+
+
+def get_storage():
+    return info[8]
+
+
+def get_ram():
+    return info[9]
