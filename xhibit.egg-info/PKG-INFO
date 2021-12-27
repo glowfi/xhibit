@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: xhibit
-Version: 4.0.0
+Version: 4.0.1
 Summary: A python script to exhibit your ascii arts and sytem specs
 Home-page: https://github.com/glowfi/xhibit
 Author: glowfi
@@ -27,7 +27,7 @@ pip install xhibit
 
 ### DEPENDENCIES
 
-** For Ascii art only **
+**For Ascii art only**
 
 -   python 3.5+
 
@@ -66,6 +66,14 @@ options:
 -   dragon
 
 > Example commands
+
+**Image support only on kitty terminal**
+
+```
+xhibit -img image_location
+```
+
+![example0](image_support.png)
 
 > **To Choose gruvbox Colorscheme and casper**
 
