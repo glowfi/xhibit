@@ -10,7 +10,7 @@ pip install xhibit
 
 ### DEPENDENCIES
 
-** For Ascii art only **
+**For Ascii art only**
 
 -   python 3.5+
 
@@ -49,6 +49,14 @@ options:
 -   dragon
 
 > Example commands
+
+**Image support only on kitty terminal**
+
+```
+xhibit -img image_location
+```
+
+![example0](image_support.png)
 
 > **To Choose gruvbox Colorscheme and casper**
 
