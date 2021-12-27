@@ -2,6 +2,7 @@
 import random
 import argparse
 import sys
+import os
 
 from Exhibition import ascii
 from Exhibition import sysinfo
@@ -136,11 +137,18 @@ if __name__ == "Exhibition":
     parser.add_argument(
         "-gpu", type=str, default="", help="Mention Gpu [Custom Gpu name]."
     )
-    parser.add_argument("-img", type=str, default="", help="Image path [Image display works for kitty terminal only].")
+    parser.add_argument(
+        "-img",
+        type=str,
+        default="",
+        help="Image path [Image display works for kitty terminal only].",
+    )
     args = parser.parse_args()
 
     if args.img != "":
         obj = xhibit(args.cs, args.rcs, args.cn, args.rcn, args.cpu, args.gpu, args.img)
+        call_with_args = "reset"
+        os.system(call_with_args)
         obj.colorscheme()
         obj.specs()
         obj.disp_image()
