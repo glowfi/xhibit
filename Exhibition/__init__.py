@@ -68,7 +68,11 @@ class xhibit:
         self.info.append(sysinfo.get_kernel())
 
         # TOTAL PACKAGES
-        self.info.append(sysinfo.get_packages() + " packages")
+        if self.image =="":
+            self.info.append(sysinfo.get_packages() + " packages")
+        else:
+            self.info.append(sysinfo.get_packages())
+
 
         # DEFAULT USER SHELL
         self.info.append(sysinfo.get_def_shell())
