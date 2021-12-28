@@ -1,6 +1,8 @@
 LICENSE
 README.md
 setup.py
+./Exhibition/pos.sh
+./Exhibition/shell.sh
 Exhibition/__init__.py
 Exhibition/ascii.py
 Exhibition/color_palette.py
