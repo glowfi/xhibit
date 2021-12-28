@@ -5,8 +5,8 @@ import getpass
 import os
 
 username = getpass.getuser()
-hostname = os.uname()[1]
-spc_ = "=" * len(username + hostname + "@")
+message = "'s Xhibit"
+spc_ = "=" * len(username + message + " ")
 
 
 def print_(info, field_colors):
@@ -16,7 +16,7 @@ def print_(info, field_colors):
         tcolor(f"{spc}                      ", color=field_colors[0], styles=["bold"])
     )
     print(
-        tcolor(f" {spc}{username}@{hostname} ", color=field_colors[4], styles=["bold"])
+        tcolor(f" {spc}{username}{message} ", color=field_colors[4], styles=["bold"])
     )
     print(
         tcolor(f" {spc}{spc_}                ", color=field_colors[0], styles=["bold"])

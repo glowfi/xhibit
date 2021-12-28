@@ -3,13 +3,13 @@ import getpass
 import os 
 
 username = getpass.getuser()
-hostname=os.uname()[1]
-spc="="*len(username+hostname+"@")
+message = "'s Xhibit"
+spc = "=" * len(username + message + " ")
 
 
 def dragon(info,field_colors):
     print("")
-    print(tcolor(f"           /           /     {username}@{hostname}",color=field_colors[0],styles=["bold"]))
+    print(tcolor(f"           /           /     {username}{message}  ",color=field_colors[0],styles=["bold"]))
     print(tcolor(f"          /' .,,,,  ./       {spc}                ",color=field_colors[1],styles=["bold"]))
     print(tcolor(f"         /';'     ,/         ◼ {info[0]}          ",color=field_colors[0],styles=["bold"]))
     print(tcolor(f"        / /   ,,//,`'`       ◼ {info[1]}          ",color=field_colors[1],styles=["bold"]))
@@ -32,7 +32,7 @@ def monalisa(info,field_colors):
     print(tcolor(f"         o8%8888,                                 ",color=field_colors[4],styles=["bold"]))
     print(tcolor(f"       o88%8888888.                               ",color=field_colors[6],styles=["bold"]))
     print(tcolor(f"      8'-    -:8888b                              ",color=field_colors[1],styles=["bold"]))
-    print(tcolor(f"     8'         8888         {username}@{hostname}",color=field_colors[2],styles=["bold"]))
+    print(tcolor(f"     8'         8888         {username}{message}  ",color=field_colors[2],styles=["bold"]))
     print(tcolor(f"    d8.-=. ,==-.:888b        {spc}                ",color=field_colors[6],styles=["bold"]))
     print(tcolor(f"    >8 `~` :`~' d8888        m {info[0]}          ",color=field_colors[0],styles=["bold"]))
     print(tcolor(f"    88         ,88888        o {info[1]}          ",color=field_colors[1],styles=["bold"]))
@@ -50,7 +50,7 @@ def monalisa(info,field_colors):
 
 def casper(info,field_colors):
     print("")
-    print(tcolor(f"     .-''''-.            {username}@{hostname}    ",color=field_colors[5],styles=["bold"]))
+    print(tcolor(f"     .-''''-.            {username}{message}      ",color=field_colors[5],styles=["bold"]))
     print(tcolor(f"    / -   -  \           {spc}                    ",color=field_colors[7],styles=["bold"]))
     print(tcolor(f"   |  .-. .- |           @ {info[0]}              ",color=field_colors[0],styles=["bold"]))
     print(tcolor(f"   |  \o| |o (           # {info[1]}              ",color=field_colors[1],styles=["bold"]))
@@ -73,7 +73,7 @@ def casper(info,field_colors):
 def egyptian(info,field_colors):
     print("")
     print(tcolor(f"             ?                                                               ",color=field_colors[6],styles=["bold"]))
-    print(tcolor(f"         ____'_                   |   |                {username}@{hostname} ",color=field_colors[2],styles=["bold"]))
+    print(tcolor(f"         ____'_                   |   |                {username}{message}   ",color=field_colors[2],styles=["bold"]))
     print(tcolor(f"        /'  _)))                  |\_/|______,         {spc}                 ",color=field_colors[1],styles=["bold"]))
     print(tcolor(f"       /===| _\                  /::| Q  ____)         𓅃 {info[0]}           ",color=field_colors[0],styles=["bold"]))
     print(tcolor(f"      ('___|   >   ,_           /:::|   /    ,_        𓃀 {info[1]}           ",color=field_colors[1],styles=["bold"]))
@@ -100,7 +100,7 @@ def egyptian(info,field_colors):
 def fairy(info,field_colors):
     print("")
     print(tcolor(f"       .--.   _,                                       ",color=field_colors[3],styles=["bold"]))
-    print(tcolor(f"   .--;    \ /(_                  {username}@{hostname}",color=field_colors[4],styles=["bold"]))
+    print(tcolor(f"   .--;    \ /(_                  {username}{message}  ",color=field_colors[4],styles=["bold"]))
     print(tcolor(f"  /    '.   |   '-._    . ' .     {spc}                ",color=field_colors[6],styles=["bold"]))
     print(tcolor(f" |       \  \    ,-.)  -= * =-    * {info[0]}          ",color=field_colors[2],styles=["bold"]))
     print(tcolor(f"  \ /\_   '. \((` .(    '/. '     * {info[1]}          ",color=field_colors[0],styles=["bold"]))
