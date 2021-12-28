@@ -1,6 +1,13 @@
 import os
 from tcolorpy import tcolor
 from Exhibition import color_palette
+import getpass
+import os 
+
+username = getpass.getuser()
+hostname=os.uname()[1]
+spc_="="*len(username+hostname+"@")
+
 
 
 def display_image(image_path, info, field_colors):
@@ -18,6 +25,12 @@ def display_image(image_path, info, field_colors):
     spc = " " * 55
     print(
         tcolor(f"{spc}                      ", color=field_colors[0], styles=["bold"])
+    )
+    print(
+        tcolor(f" {spc}{username}@{hostname} ", color=field_colors[4], styles=["bold"])
+    )
+    print(
+        tcolor(f" {spc}{spc_}                ", color=field_colors[0], styles=["bold"])
     )
     print(
         tcolor(f"{spc} os : {info[0]}       ", color=field_colors[0], styles=["bold"])
