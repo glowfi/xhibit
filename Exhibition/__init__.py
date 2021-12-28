@@ -17,7 +17,28 @@ class xhibit:
 
         # Global default variables
         self.info = []
-        self.cschemes = ["gruvbox", "dracula"]
+        self.cschemes = {
+            "gruvbox": [
+                "#fb4934",
+                "#b8bb26",
+                "#fabd2f",
+                "#83a598",
+                "#d3869b",
+                "#8ec07c",
+                "#fe8019",
+                "#d79921",
+            ],
+            "dracula": [
+                "#f8f8f2",
+                "#8be9fd",
+                "#50fa7b",
+                "#ffb86c",
+                "#ff79c6",
+                "#bd93f9",
+                "#ff5555",
+                "#f1fa8c",
+            ],
+        }
         self.field_colors = None
         self.cpu = args[4]
         self.gpu = args[5]
@@ -28,36 +49,20 @@ class xhibit:
         self.randomize_user_colors = args[1]
         self.character_name = args[2]
         self.randomize_characters = args[3]
+        self.customColorscheme = args[7]
 
     def colorscheme(self):
 
         # Colorschemes
-        gruvbox = [
-            "#fb4934",
-            "#b8bb26",
-            "#fabd2f",
-            "#83a598",
-            "#d3869b",
-            "#8ec07c",
-            "#fe8019",
-            "#d79921",
-        ]
-        dracula = [
-            "#f8f8f2",
-            "#8be9fd",
-            "#50fa7b",
-            "#ffb86c",
-            "#ff79c6",
-            "#bd93f9",
-            "#ff5555",
-            "#f1fa8c",
-        ]
-
         if self.randomize_user_colors == "t":
-            self.field_colors = eval(random.choice(self.cschemes))
+            key = random.choice(list(self.cschemes.keys()))
+            self.field_colors = self.cschemes[key]
+
+        elif self.customColorscheme != "":
+            self.field_colors = self.customColorscheme.split(",")
 
         else:
-            self.field_colors = eval(self.user_colors)
+            self.field_colors = self.cschemes[self.user_colors]
 
     def specs(self):
 
@@ -68,11 +73,10 @@ class xhibit:
         self.info.append(sysinfo.get_kernel())
 
         # TOTAL PACKAGES
-        if self.image =="":
+        if self.image == "":
             self.info.append(sysinfo.get_packages() + " packages")
         else:
             self.info.append(sysinfo.get_packages())
-
 
         # DEFAULT USER SHELL
         self.info.append(sysinfo.get_def_shell())
@@ -136,6 +140,12 @@ if __name__ == "Exhibition":
         "-rcs", type=str, default="f", help="Randomize Colorschemes [t or f]."
     )
     parser.add_argument(
+        "-ccs",
+        type=str,
+        default="",
+        help='Give custom colorschemem of 8 colors like this "#BF616A,#A3BE8C,#EBCB8B,#81A1C1,#B48EAD,#88C0D0,#E5E9F0,#B48EAD".',
+    )
+    parser.add_argument(
         "-cn",
         type=str,
         default="monalisa",
@@ -159,7 +169,9 @@ if __name__ == "Exhibition":
     args = parser.parse_args()
 
     if args.img != "":
-        obj = xhibit(args.cs, args.rcs, args.cn, args.rcn, args.cpu, args.gpu, args.img)
+        obj = xhibit(
+            args.cs, args.rcs, args.cn, args.rcn, args.cpu, args.gpu, args.img, args.ccs
+        )
         call_with_args = "reset"
         os.system(call_with_args)
         obj.colorscheme()
@@ -167,7 +179,9 @@ if __name__ == "Exhibition":
         obj.disp_image()
         sys.exit()
     else:
-        obj = xhibit(args.cs, args.rcs, args.cn, args.rcn, args.cpu, args.gpu, args.img)
+        obj = xhibit(
+            args.cs, args.rcs, args.cn, args.rcn, args.cpu, args.gpu, args.img, args.ccs
+        )
         obj.colorscheme()
         obj.specs()
         obj.ascii_art()

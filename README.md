@@ -27,12 +27,13 @@ pip install xhibit
 > Arguments available
 
 ```
-usage: xhibit [-h] [-cs CS] [-rcs RCS] [-cn CN] [-rcn RCN] [-cpu CPU] [-gpu GPU] [-img IMG]
+usage: xhibit [-h] [-cs CS] [-rcs RCS] [-ccs CCS] [-cn CN] [-rcn RCN] [-cpu CPU] [-gpu GPU] [-img IMG]
 
 options:
   -h, --help  show this help message and exit
   -cs CS      Colorscheme to display [dracula,gruvbox].
   -rcs RCS    Randomize Colorschemes [t or f].
+  -ccs CCS    Give custom colorschemem of 8 colors like this "#BF616A,#A3BE8C,#EBCB8B,#81A1C1,#B48EAD,#88C0D0,#E5E9F0,#B48EAD".
   -cn CN      Specify Character name [monalisa,egyptian,fairy,casper,dragon].
   -rcn RCN    Randomize Characters [t or f].
   -cpu CPU    Mention Cpu [Custom Cpu name].
