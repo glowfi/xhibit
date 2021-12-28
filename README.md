@@ -1,6 +1,6 @@
 ### XHIBIT
 
-> **Exhibit your ASCII ART and system specs**
+> **Exhibit your ASCII art and system specs**
 
 ### INSTALLATION
 
@@ -24,8 +24,6 @@ pip install xhibit
 
 ### HOW TO USE
 
-> Arguments available
-
 ```
 usage: xhibit [-h] [-cs CS] [-rcs RCS] [-ccs CCS] [-cn CN] [-rcn RCN] [-cpu CPU] [-gpu GPU] [-img IMG]
 
@@ -41,13 +39,18 @@ options:
   -img IMG    Image path [Image display works for kitty terminal only].
 ```
 
-> Characters available
+**Characters available**
 
 -   monalisa
 -   egyptian
 -   casper
 -   fairy
 -   dragon
+
+**Available colorschemes**
+
+-   gruvbox
+-   dracula
 
 > Example commands
 
@@ -57,28 +60,40 @@ options:
 xhibit -img image_location
 ```
 
-![example0](image_support.png)
+![example1](image_support.png)
 
-> **To Choose gruvbox Colorscheme and casper**
+**To give custom user colors**
+
+You can give custom user colors to xhibit to display text.
+Must give all the 8 colors in hex format just as shown below.
+Nord Colorscheme colors are used below as example.
+
+```
+xhibit -ccs "#BF616A,#A3BE8C,#EBCB8B,#81A1C1,#B48EAD,#88C0D0,#E5E9F0,#B48EAD"
+```
+
+![example0](./custom_colorscheme.png)
+
+**To Choose gruvbox Colorscheme and casper**
 
 ```
 xhibit -cs gruvbox -cn casper
 ```
 
-![example1](casper.png)
+![example2](casper.png)
 
-> **To Choose dracula Colorscheme and fairy**
+**To Choose dracula Colorscheme and fairy**
 
 ```
 xhibit -cs dracula -cn fairy
 ```
 
-![example1](fairy.png)
+![example3](fairy.png)
 
-> **To randomize colorscheme and character**
+**To randomize colorscheme and character**
 
 ```
 xhibit -rcs t -rcn t
 ```
 
-![example2](monalisa.png)
+![example4](monalisa.png)
