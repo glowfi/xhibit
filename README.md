@@ -12,11 +12,11 @@ pip install xhibit
 
 **For Ascii art only**
 
--   python 3.5+
+-   **python 3.5+**
 
 **For Image display**
 
--   kitty
+-   **kitty terminal** or **ueberzug**
 -   xorg-xdpyinfo
 -   xdotool
 -   xorg-xprop
@@ -25,7 +25,7 @@ pip install xhibit
 ### HOW TO USE
 
 ```
-usage: xhibit [-h] [-cs CS] [-rcs RCS] [-ccs CCS] [-cn CN] [-rcn RCN] [-cpu CPU] [-gpu GPU] [-img IMG]
+usage: xhibit [-h] [-cs CS] [-rcs RCS] [-ccs CCS] [-cn CN] [-rcn RCN] [-cpu CPU] [-gpu GPU] [-img IMG] [-imb IMB] [-crop CROP]
 
 options:
   -h, --help  show this help message and exit
@@ -36,10 +36,12 @@ options:
   -rcn RCN    Randomize Characters [t or f].
   -cpu CPU    Mention Cpu [Custom Cpu name].
   -gpu GPU    Mention Gpu [Custom Gpu name].
-  -img IMG    Image path [Image display works for kitty terminal only].
+  -img IMG    Image path.
+  -imb IMB    Mention Image backend [kitty or ueberzug].
+  -crop CROP  Mention Image backend [fit or fill].
 ```
 
-**Characters available**
+**ASCII Characters available**
 
 -   monalisa
 -   egyptian
@@ -52,15 +54,35 @@ options:
 -   gruvbox
 -   dracula
 
-> Example commands
+### Example commands
 
-**Image support only on kitty terminal**
+**Image support with ueberzug or kitty terminal**
 
 ```
-xhibit -img image_location
+xhibit -img image_location -imb "kitty"
+
+                or
+
+xhibit -img image_location -imb "ueberzug"
+
+```
+
+**Image crop fit or fill**
+
+```
+xhibit -img image_location -imb "kitty" -crop "fit"
+xhibit -img image_location -imb "kitty" -crop "fill"
+
+                or
+
+xhibit -img image_location -imb "ueberzug" -crop "fit"
+xhibit -img image_location -imb "ueberzug" -crop "fill"
+
 ```
 
 ![example1](image_support.png)
+
+### ASCII characters
 
 **To give custom user colors**
 

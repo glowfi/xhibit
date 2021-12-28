@@ -50,6 +50,8 @@ class xhibit:
         self.character_name = args[2]
         self.randomize_characters = args[3]
         self.customColorscheme = args[7]
+        self.imageBackend = args[8]
+        self.cropMode = args[9]
 
     def colorscheme(self):
 
@@ -124,7 +126,9 @@ class xhibit:
             color_palette.color_test("ascii")
 
     def disp_image(self):
-        image.display_image(self.image, self.info, self.field_colors)
+        image.display_image(
+            self.image, self.info, self.field_colors, self.imageBackend, self.cropMode
+        )
 
 
 if __name__ == "Exhibition":
@@ -164,13 +168,28 @@ if __name__ == "Exhibition":
         "-img",
         type=str,
         default="",
-        help="Image path [Image display works for kitty terminal only].",
+        help="Image path.",
+    )
+    parser.add_argument(
+        "-imb", type=str, default="", help="Mention Image backend [kitty or ueberzug]."
+    )
+    parser.add_argument(
+        "-crop", type=str, default="", help="Mention Image backend [fit or fill]."
     )
     args = parser.parse_args()
 
     if args.img != "":
         obj = xhibit(
-            args.cs, args.rcs, args.cn, args.rcn, args.cpu, args.gpu, args.img, args.ccs
+            args.cs,
+            args.rcs,
+            args.cn,
+            args.rcn,
+            args.cpu,
+            args.gpu,
+            args.img,
+            args.ccs,
+            args.imb,
+            args.crop,
         )
         call_with_args = "reset"
         os.system(call_with_args)
@@ -180,7 +199,16 @@ if __name__ == "Exhibition":
         sys.exit()
     else:
         obj = xhibit(
-            args.cs, args.rcs, args.cn, args.rcn, args.cpu, args.gpu, args.img, args.ccs
+            args.cs,
+            args.rcs,
+            args.cn,
+            args.rcn,
+            args.cpu,
+            args.gpu,
+            args.img,
+            args.ccs,
+            args.imb,
+            args.crop,
         )
         obj.colorscheme()
         obj.specs()

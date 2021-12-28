@@ -3,8 +3,8 @@ import subprocess
 
 # Getting Path
 shell_loc = os.path.realpath(__file__)
-ind = str(shell_loc).find("Exhibition")
-shell_loc = f"{shell_loc[0:ind-1]}/Exhibition/shell.sh"
+ind = str(shell_loc).find(".local")
+shell_loc = f"{shell_loc[0:ind-1]}/.local/bin/shell.sh"
 
 # Running Shell script
 cmd = ["sh", f"{shell_loc}"]

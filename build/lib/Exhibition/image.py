@@ -2,26 +2,15 @@ import os
 from tcolorpy import tcolor
 from Exhibition import color_palette
 import getpass
-import os 
+import os
 
 username = getpass.getuser()
-hostname=os.uname()[1]
-spc_="="*len(username+hostname+"@")
+hostname = os.uname()[1]
+spc_ = "=" * len(username + hostname + "@")
 
 
+def print_(info, field_colors):
 
-def display_image(image_path, info, field_colors):
-
-    # Getting Path
-    pos_loc = os.path.realpath(__file__)
-    ind = str(pos_loc).find("Exhibition")
-    pos_loc = f"{pos_loc[0:ind-1]}/Exhibition/pos.sh"
-
-    # Running Shell script
-    call_with_args = f"{pos_loc} {image_path}"
-    os.system(call_with_args)
-
-    # Print Ascii
     spc = " " * 55
     print(
         tcolor(f"{spc}                      ", color=field_colors[0], styles=["bold"])
@@ -65,6 +54,26 @@ def display_image(image_path, info, field_colors):
         tcolor(f"{spc} ram : {info[9]}      ", color=field_colors[4], styles=["bold"])
     )
     color_palette.color_test("image")
+
+
+def display_image(image_path, info, field_colors, image_backend, cropMode):
+
+    # Print ascii first for ueberzug
+    if image_backend == "ueberzug":
+        print_(info, field_colors)
+
+    # Getting Path
+    pos_loc = os.path.realpath(__file__)
+    ind = str(pos_loc).find(".local")
+    pos_loc = f"{pos_loc[0:ind-1]}/.local/bin/pos.sh"
+
+    # Running Shell script
+    call_with_args = f"{pos_loc} {image_path} {image_backend} {cropMode}"
+    os.system(call_with_args)
+
+    # Print ascii last for kitty
+    if image_backend == "kitty":
+        print_(info, field_colors)
 
     # Put the cursor at the end of terminal's row
     call_with_args = "output=$(tput lines);tput cup $output 0"

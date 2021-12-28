@@ -1,6 +1,9 @@
 #!/bin/sh
 
 wall="$1"
+backend="$2"
+crop_mode="$3"
+crop_offset="center"
 
 get_window_size() {
 
@@ -103,7 +106,7 @@ get_image_size
 
 make_thumbnail() {
 
-    # Create cache directory if does not exists
+	# Create cache directory if does not exists
 	mkdir -p ~/.cache
 
 	[[ -z "$size" ]] && {
@@ -111,20 +114,55 @@ make_thumbnail() {
 		((og_height > og_width)) && size="$og_width" || size="$og_height"
 	}
 
-	convert \
-		-background none \
-		"$wall" \
-		-trim +repage \
-		-gravity south \
-		-background "$c" \
-		-extent "${size}x${size}" \
-		-scale "${width}x${height}" \
-		~/.cache/new.png
+	case $crop_mode in
+	"fit")
+		convert \
+			-background none \
+			"$wall" \
+			-trim +repage \
+			-gravity south \
+			-extent "${size}x${size}" \
+			-scale "${width}x${height}" \
+			~/.cache/new.png
+		;;
+
+	"fill")
+		convert \
+			-background none \
+			"$wall" \
+			-trim +repage \
+			-scale "${width}x${height}^" \
+			-extent "${width}x${height}" \
+			~/.cache/new.png
+		;;
+
+	*)
+		convert \
+			-background none \
+			"$wall" \
+			-strip \
+			-gravity "$crop_offset" \
+			-crop "${size}x${size}+0+0" \
+			-scale "${width}x${height}" \
+			~/.cache/new.png
+		;;
+	esac
 }
 
 make_thumbnail
 
-kitty +kitten icat \
-	--align left \
-	--place "$((width / font_width))x$((height / font_height))@0x0" \
-	~/.cache/new.png
+if [[ "$backend" = "ueberzug" ]]; then
+	setsid ueberzug layer --parser bash 0< <(
+		declare -Ap add_command=([action]="add" [identifier]="example0" [x]="0" [y]="0" [path]=~/.cache/new.png
+		)
+		read -rs
+	)
+elif [[ "$backend" = "kitty" ]]; then
+
+	kitty +kitten icat \
+		--align left \
+		--place "$((width / font_width))x$((height / font_height))@0x0" \
+		~/.cache/new.png
+else
+	echo "No Image Backend Provided! Use Ueberzug or kitty terminal"
+fi

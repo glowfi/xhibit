@@ -21,3 +21,9 @@ Change Log
 4.0.0 (27/12/2021)
 ---------------------
 - Added colortest support
+
+5.0.0 (28/12/2021)
+---------------------
+- Ueberzug support 
+- Added Image crop mode
+- Display username and host
