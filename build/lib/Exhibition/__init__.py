@@ -8,6 +8,7 @@ from Exhibition import ascii
 from Exhibition import sysinfo
 from Exhibition import image
 from Exhibition import color_palette
+from Exhibition import colors
 
 
 class xhibit:
@@ -38,6 +39,7 @@ class xhibit:
                 "#ff5555",
                 "#f1fa8c",
             ],
+            **colors.colors,
         }
         self.field_colors = None
         self.cpu = args[4]
@@ -52,19 +54,23 @@ class xhibit:
         self.customColorscheme = args[7]
         self.imageBackend = args[8]
         self.cropMode = args[9]
+        self.choice = {}
 
     def colorscheme(self):
 
         # Colorschemes
         if self.randomize_user_colors == "t":
-            key = random.choice(list(self.cschemes.keys()))
-            self.field_colors = self.cschemes[key]
+            key = random.choice(list(colors.colors.keys()))
+            self.field_colors = colors.colors[key]
+            self.choice["theme"] = key
 
         elif self.customColorscheme != "":
             self.field_colors = self.customColorscheme.split(",")
+            self.choice["theme"] = "custom"
 
         else:
             self.field_colors = self.cschemes[self.user_colors]
+            self.choice["theme"] = self.user_colors
 
     def specs(self):
 
@@ -119,15 +125,23 @@ class xhibit:
         if self.randomize_characters == "t":
             characters_names = ["dragon", "monalisa", "casper", "egyptian", "fairy"]
             charac = random.choice(characters_names)
-            eval(f"{charac}")(self.info, self.field_colors)
+            self.choice["charac"] = charac
+            eval(f"{charac}")(self.info, self.field_colors, self.choice)
             color_palette.color_test("ascii")
         else:
-            eval(f"{self.character_name}")(self.info, self.field_colors)
+            self.choice["charac"] = self.character_name
+            eval(f"{self.character_name}")(self.info, self.field_colors, self.choice)
             color_palette.color_test("ascii")
 
     def disp_image(self):
+        self.choice["charac"] = ""
         image.display_image(
-            self.image, self.info, self.field_colors, self.imageBackend, self.cropMode
+            self.image,
+            self.info,
+            self.field_colors,
+            self.imageBackend,
+            self.cropMode,
+            self.choice,
         )
 
 
@@ -138,7 +152,7 @@ if __name__ == "Exhibition":
         "-cs",
         type=str,
         default="gruvbox",
-        help="Colorscheme to display [dracula,gruvbox].",
+        help="Colorscheme to display.",
     )
     parser.add_argument(
         "-rcs", type=str, default="f", help="Randomize Colorschemes [t or f]."
@@ -174,7 +188,7 @@ if __name__ == "Exhibition":
         "-imb", type=str, default="", help="Mention Image backend [kitty or ueberzug]."
     )
     parser.add_argument(
-        "-crop", type=str, default="", help="Mention Image backend [fit or fill]."
+        "-crop", type=str, default="", help="Mention crop type [fit or fill]."
     )
     args = parser.parse_args()
 

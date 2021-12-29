@@ -4,22 +4,30 @@ from Exhibition import color_palette
 import getpass
 import os
 
+
+host = os.uname()[1]
 username = getpass.getuser()
-message = "'s Xhibit"
-spc_ = "=" * len(username + message + " ")
+username = "glowfi"
+# message = "'s Xhibit"
+# spc_ = "=" * len(username + message + " ")
 
 
-def print_(info, field_colors):
-
+def print_(info, field_colors,choice,img_path):
+    img_path=img_path.split("/")[-1]
+    choice["charac"]=f"{img_path}"
+    ch="Image:"+choice["charac"] +" "
+    t="Theme:"+choice["theme"]
+    spc_ = "=" * len(ch + t +" ") 
     spc = " " * 55
+    spc__="=" * len(info[9])
     print(
         tcolor(f"{spc}                      ", color=field_colors[0], styles=["bold"])
     )
     print(
-        tcolor(f" {spc}{username}{message} ", color=field_colors[4], styles=["bold"])
+        tcolor(f" {spc}{ch}{t}              ", color=field_colors[4], styles=["bold"])
     )
     print(
-        tcolor(f" {spc}{spc_}                ", color=field_colors[0], styles=["bold"])
+        tcolor(f" {spc}{spc_}               ", color=field_colors[0], styles=["bold"])
     )
     print(
         tcolor(f"{spc} os : {info[0]}       ", color=field_colors[0], styles=["bold"])
@@ -54,13 +62,19 @@ def print_(info, field_colors):
         tcolor(f"{spc} ram : {info[9]}      ", color=field_colors[4], styles=["bold"])
     )
     color_palette.color_test("image")
+    print(
+        tcolor(f"{spc}{spc__}               ", color=field_colors[4], styles=["bold"])
+    )
+    print(
+        tcolor(f"{spc}{username}@{host}     ", color=field_colors[2], styles=["bold"])
+    )
 
 
-def display_image(image_path, info, field_colors, image_backend, cropMode):
+def display_image(image_path, info, field_colors, image_backend, cropMode,choice):
 
     # Print ascii first for ueberzug
     if image_backend == "ueberzug":
-        print_(info, field_colors)
+        print_(info, field_colors,choice,image_path)
 
     # Getting Path
     pos_loc = os.path.realpath(__file__)
@@ -73,7 +87,7 @@ def display_image(image_path, info, field_colors, image_backend, cropMode):
 
     # Print ascii last for kitty
     if image_backend == "kitty":
-        print_(info, field_colors)
+        print_(info, field_colors,choice,image_path)
 
     # Put the cursor at the end of terminal's row
     call_with_args = "output=$(tput lines);tput cup $output 0"

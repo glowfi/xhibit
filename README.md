@@ -32,7 +32,7 @@ usage: xhibit [-h] [-cs CS] [-rcs RCS] [-ccs CCS] [-cn CN] [-rcn RCN] [-cpu CPU]
 
 options:
   -h, --help  show this help message and exit
-  -cs CS      Colorscheme to display [dracula,gruvbox].
+  -cs CS      Colorscheme to display.
   -rcs RCS    Randomize Colorschemes [t or f].
   -ccs CCS    Give custom colorschemem of 8 colors like this "#BF616A,#A3BE8C,#EBCB8B,#81A1C1,#B48EAD,#88C0D0,#E5E9F0,#B48EAD".
   -cn CN      Specify Character name [monalisa,egyptian,fairy,casper,dragon].
@@ -59,7 +59,7 @@ options:
 -   gruvbox
 -   dracula
 
-**Extra Colorscheme List**
+**Extra Colorscheme List present inside this program**
 
 **[Colorscheme list](https://raw.githubusercontent.com/glowfi/xhibit-colorschemes/main/colorscheme.txt)**
 
@@ -87,33 +87,17 @@ xhibit -cs dracula -cn fairy
 xhibit -rcs t -rcn t
 ```
 
-![example4](monalisa.png)
+![example4](egyptian.png)
 
-**Image support with ueberzug or kitty terminal.**
+**Pick colorscheme**
 
-```
-xhibit -img image_location -imb "kitty"
-
-                or
-
-xhibit -img image_location -imb "ueberzug"
+Check **[Colorscheme list](https://raw.githubusercontent.com/glowfi/xhibit-colorschemes/main/colorscheme.txt)**
 
 ```
-
-**Image crop fit or fill**
-
-```
-xhibit -img image_location -imb "kitty" -crop "fit"
-xhibit -img image_location -imb "kitty" -crop "fill"
-
-                or
-
-xhibit -img image_location -imb "ueberzug" -crop "fit"
-xhibit -img image_location -imb "ueberzug" -crop "fill"
-
+xhibit -cs "Eighties.dark" -cn dragon
 ```
 
-## ![example1](image_support.png)
+![example4](pick_colorscheme.png)
 
 **To give custom user colors**
 
@@ -142,3 +126,29 @@ ls ~/.cache/themes| fzf | xargs -I {} cat ~/.cache/themes/{} | xargs | tr " " ",
 wget https://raw.githubusercontent.com/glowfi/xhibit-colorschemes/main/run.sh -O ~/.cache/xhibitCol.sh
 sh ~/.cache/xhibitCol.sh
 ```
+
+**Image support with ueberzug or kitty terminal.**
+
+```
+xhibit -img image_location -imb "kitty"
+
+                or
+
+xhibit -img image_location -imb "ueberzug"
+
+```
+
+**Image crop fit or fill**
+
+```
+xhibit -img image_location -imb "kitty" -crop "fit"
+xhibit -img image_location -imb "kitty" -crop "fill"
+
+                or
+
+xhibit -img image_location -imb "ueberzug" -crop "fit"
+xhibit -img image_location -imb "ueberzug" -crop "fill"
+
+```
+
+## ![example1](image_support.png)

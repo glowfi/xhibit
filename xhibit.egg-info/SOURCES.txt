@@ -6,6 +6,7 @@ setup.py
 Exhibition/__init__.py
 Exhibition/ascii.py
 Exhibition/color_palette.py
+Exhibition/colors.py
 Exhibition/image.py
 Exhibition/sysinfo.py
 xhibit.egg-info/PKG-INFO
