@@ -3,8 +3,7 @@ import getpass
 import os
 
 host = os.uname()[1]
-username = getpass.getuser()
-username = "glowfi"
+username = "- "+getpass.getuser()
 spc=""
 spc_=""
 ch=""
@@ -18,8 +17,11 @@ def modify(choice,info):
     global username
     ch="ASCII:"+choice["charac"] +" "
     t="Theme:"+choice["theme"]
+    k=len(info[9]) + len(host) + len(username) + len("ram : ")
     spc = "=" * len(ch + t + " ") 
-    spc_="=" * len(info)
+    spc_="=" * k
+    k1 = " " * (k - (len(host) + len(username)))
+    username = k1 + username
 
 def dragon(info,field_colors,choice):
     modify(choice,info[9])

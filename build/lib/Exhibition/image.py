@@ -6,20 +6,20 @@ import os
 
 
 host = os.uname()[1]
-username = getpass.getuser()
-username = "glowfi"
-# message = "'s Xhibit"
-# spc_ = "=" * len(username + message + " ")
 
 
-def print_(info, field_colors,choice,img_path):
-    img_path=img_path.split("/")[-1]
-    choice["charac"]=f"{img_path}"
-    ch="Image:"+choice["charac"] +" "
-    t="Theme:"+choice["theme"]
-    spc_ = "=" * len(ch + t +" ") 
+def print_(info, field_colors, choice, img_path):
+    username = "- " + getpass.getuser()
+    img_path = img_path.split("/")[-1]
+    choice["charac"] = f"{img_path}"
+    ch = "Image:" + choice["charac"] + " "
+    t = "Theme:" + choice["theme"]
+    spc_ = "=" * len(ch + t + " ")
     spc = " " * 55
-    spc__="=" * len(info[9])
+    k = len(info[9]) + len(host) + len(username) + len("ram : ")
+    k1 = " " * (k - (len(host) + len(username)))
+    username = k1 + username
+    spc__ = "=" * k
     print(
         tcolor(f"{spc}                      ", color=field_colors[0], styles=["bold"])
     )
@@ -70,11 +70,11 @@ def print_(info, field_colors,choice,img_path):
     )
 
 
-def display_image(image_path, info, field_colors, image_backend, cropMode,choice):
+def display_image(image_path, info, field_colors, image_backend, cropMode, choice):
 
     # Print ascii first for ueberzug
     if image_backend == "ueberzug":
-        print_(info, field_colors,choice,image_path)
+        print_(info, field_colors, choice, image_path)
 
     # Getting Path
     pos_loc = os.path.realpath(__file__)
@@ -87,7 +87,7 @@ def display_image(image_path, info, field_colors, image_backend, cropMode,choice
 
     # Print ascii last for kitty
     if image_backend == "kitty":
-        print_(info, field_colors,choice,image_path)
+        print_(info, field_colors, choice, image_path)
 
     # Put the cursor at the end of terminal's row
     call_with_args = "output=$(tput lines);tput cup $output 0"
