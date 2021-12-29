@@ -2,6 +2,9 @@
 
 > **Exhibit your ASCII art and system specs**
 
+**This is an alpha software.
+It requires more testing.**
+
 ### INSTALLATION
 
 ```
@@ -38,8 +41,10 @@ options:
   -gpu GPU    Mention Gpu [Custom Gpu name].
   -img IMG    Image path.
   -imb IMB    Mention Image backend [kitty or ueberzug].
-  -crop CROP  Mention Image backend [fit or fill].
+  -crop CROP  Mention crop type [fit or fill].
 ```
+
+### ASCII characters
 
 **ASCII Characters available**
 
@@ -49,68 +54,16 @@ options:
 -   fairy
 -   dragon
 
-**Available colorschemes**
+**Default colorschemes**
 
 -   gruvbox
 -   dracula
 
+**Extra Colorscheme List**
+
+**[Colorscheme list](https://raw.githubusercontent.com/glowfi/xhibit-colorschemes/main/colorscheme.txt)**
+
 ### Example commands
-
-**Image support with ueberzug or kitty terminal**
-
-```
-xhibit -img image_location -imb "kitty"
-
-                or
-
-xhibit -img image_location -imb "ueberzug"
-
-```
-
-**Image crop fit or fill**
-
-```
-xhibit -img image_location -imb "kitty" -crop "fit"
-xhibit -img image_location -imb "kitty" -crop "fill"
-
-                or
-
-xhibit -img image_location -imb "ueberzug" -crop "fit"
-xhibit -img image_location -imb "ueberzug" -crop "fill"
-
-```
-
-![example1](image_support.png)
-
-### ASCII characters
-
-**To give custom user colors**
-
-You can give custom user colors to xhibit to display text.
-Must give all the 8 colors in hex format just as shown below.
-Nord Colorscheme colors are used below as example.
-
-```
-xhibit -ccs "#BF616A,#A3BE8C,#EBCB8B,#81A1C1,#B48EAD,#88C0D0,#E5E9F0,#B48EAD"
-```
-
-### DOWNLOAD ALL THE THEMES AND SEE WITH FZF
-
-```
-git clone https://github.com/glowfi/xhibit-colorschemes
-mv ~/xhibit-colorschemes/themes ~/.cache
-rm -rf xhibit-colorschemes
-ls ~/.cache/themes| fzf | xargs -I {} cat ~/.cache/themes/{} | xargs | tr " " "," | xargs -I {} xhibit -rcn t  -ccs "{}"
-```
-
-### Try all colorscheme in 1 second interval
-
-```
-wget https://raw.githubusercontent.com/glowfi/xhibit-colorschemes/main/run.sh -O ~/.cache/xhibitCol.sh
-sh ~/.cache/xhibitCol.sh
-```
-
-![example0](./custom_colorscheme.png)
 
 **To Choose gruvbox Colorscheme and casper**
 
@@ -135,3 +88,57 @@ xhibit -rcs t -rcn t
 ```
 
 ![example4](monalisa.png)
+
+**Image support with ueberzug or kitty terminal.**
+
+```
+xhibit -img image_location -imb "kitty"
+
+                or
+
+xhibit -img image_location -imb "ueberzug"
+
+```
+
+**Image crop fit or fill**
+
+```
+xhibit -img image_location -imb "kitty" -crop "fit"
+xhibit -img image_location -imb "kitty" -crop "fill"
+
+                or
+
+xhibit -img image_location -imb "ueberzug" -crop "fit"
+xhibit -img image_location -imb "ueberzug" -crop "fill"
+
+```
+
+## ![example1](image_support.png)
+
+**To give custom user colors**
+
+You can give custom user colors to xhibit to display text.
+Must give all the 8 colors in hex format just as shown below.
+Nord Colorscheme colors are used below as example.
+
+```
+xhibit -ccs "#BF616A,#A3BE8C,#EBCB8B,#81A1C1,#B48EAD,#88C0D0,#E5E9F0,#B48EAD"
+```
+
+![example0](./custom_colorscheme.png)
+
+### DOWNLOAD ALL THE THEMES AND SEE WITH FZF
+
+```
+git clone https://github.com/glowfi/xhibit-colorschemes
+mv ~/xhibit-colorschemes/themes ~/.cache
+rm -rf xhibit-colorschemes
+ls ~/.cache/themes| fzf | xargs -I {} cat ~/.cache/themes/{} | xargs | tr " " "," | xargs -I {} xhibit -rcn t  -ccs "{}"
+```
+
+### Try all colorscheme in 1 second interval
+
+```
+wget https://raw.githubusercontent.com/glowfi/xhibit-colorschemes/main/run.sh -O ~/.cache/xhibitCol.sh
+sh ~/.cache/xhibitCol.sh
+```
