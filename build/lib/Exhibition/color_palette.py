@@ -72,12 +72,12 @@ def print_color(*args, **kwargs):
 def color_test(args):
     # Print a test graphic showing all colors.
     if args != "ascii":
-        spc=57
-        sp_=" "*spc
-        sp_+="\tColor Test"
+        spc = 67
+        sp_ = " " * spc
+        sp_ += "\tColor Test"
         print()
         print(sp_)
-        print(" " * 57, end="")
+        print(" " * 67, end="")
     else:
         print("\n\tColor Test")
         print(" " * 2, end="")
@@ -85,7 +85,7 @@ def color_test(args):
         print_color("   ", bg=c, end="")
     print()
     if args != "ascii":
-        print(" " * 57, end="")
+        print(" " * 67, end="")
     else:
         print(" " * 2, end="")
     for c in range(8, 16):

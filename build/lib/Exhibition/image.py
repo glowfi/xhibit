@@ -15,7 +15,7 @@ def print_(info, field_colors, choice, img_path):
     ch = "Image:" + choice["charac"] + " "
     t = "Theme:" + choice["theme"]
     spc_ = "=" * len(ch + t + " ")
-    spc = " " * 55
+    spc = " " * 65
     k = len(info[9]) + len(host) + len(username) + len("ram : ")
     k1 = " " * (k - (len(host) + len(username)))
     username = k1 + username
