@@ -1,13 +1,12 @@
 ### XHIBIT
 
+> **Exhibit your ASCII art and system specs**
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/glowfi/xhibit/main/image_support.png" />
 </p>
 
-> **Exhibit your ASCII art and system specs**
-
-**This is an alpha software.
-It requires more testing.**
+### This is an alpha software. It requires more testing.
 
 ### INSTALLATION
 
