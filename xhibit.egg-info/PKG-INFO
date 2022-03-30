@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: xhibit
-Version: 6.1.5
+Version: 7.0.0
 Summary: A python script to exhibit your ascii arts and sytem specs
 Home-page: https://github.com/glowfi/xhibit
 Author: glowfi
@@ -19,8 +19,11 @@ License-File: LICENSE
 
 > **Exhibit your ASCII art and system specs**
 
-**This is an alpha software.
-It requires more testing.**
+<p align="center">
+  <img src="https://raw.githubusercontent.com/glowfi/xhibit/main/image_support.png" />
+</p>
+
+### This is an alpha software. It requires more testing.
 
 ### INSTALLATION
 

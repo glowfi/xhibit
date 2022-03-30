@@ -44,38 +44,38 @@ pkgsTotal() {
 	pack=$(which {xbps-install,apk,apt,pacman,nix,dnf,rpm,dpkg,emerge} 2>&1 | grep -v "^which" | sed 's_.*/__')
 	case ${pack} in
 	"xbps-install")
-		total=$(xbps-query -l | wc -l)
+		total="$(xbps-query -l | wc -l) packages [xbps]"
 		;;
 	"apk")
-		total=$(apk search | wc -l)
+		total="$(apk search | wc -l) packages [apk]"
 		;;
 	"apt")
-		total=$(apt list --installed 2>/dev/null | wc -l)
+		total="$(apt list --installed 2>/dev/null | wc -l) packages [apt]"
 		;;
 	"pacman")
-		total=$(pacman -Q | wc -l)
+		total="$(pacman -Q | wc -l) packages [pacman]"
 		;;
 	"nix")
-		total=$(nix-env -qa --installed "*" | wc -l)
+		total="$(nix-env -qa --installed "*" | wc -l) packages [nix]"
 		;;
 	"dnf")
-		total=$(dnf list installed | wc -l)
+		total="$(dnf list installed | wc -l) packages [dnf]"
 		;;
 	"rpm")
-		total=$(rpm -qa | wc -l)
+		total="$(rpm -qa | wc -l) packages [rpm]"
 		;;
 	"emerge")
-		total=$(qlist -I | wc -l)
+		total="$(qlist -I | wc -l) packages [emerge]"
 		;;
 	"dpkg")
-		total=$(dpkg-query -l | wc -l)
+		total="$(dpkg-query -l | wc -l) packages [dpkg]"
 		;;
 	"")
 		total="Unknown"
 		;;
 	esac
 
-	varPkg=$total
+	varPkg="$total"
 }
 
 # Get default shell
@@ -90,7 +90,7 @@ storageInfo() {
 
 # Get Memory usage
 memoryUsage() {
-	mem=$(free --mega | sed -n -E '2s/^[^0-9]*([0-9]+) *([0-9]+).*/'"${space}"'\2 \/ \1 MB/p')
+	mem=$(free -h | head -2 | tail -1 | awk '{print $3"/"$2}')
 }
 
 # Get DE/WM
@@ -160,7 +160,7 @@ get_cpu() {
 	cores=$(awk '/^core id/&&!a[$0]++{++i} END {print i}' "$cpu_file")
 	cores="${cores//[[:space:]]/}"
 
-	speed="$(lscpu | grep -e "Model name" -e "CPU max MHz" -e "CPU(s)" -m 4 | tail -1 | cut -d ":" -f 2 | cut -d "." -f 1 | xargs)"
+	speed="$(lscpu | grep -e "Model name" -e "CPU max MHz" -e "CPU(s)" -m 5 | tail -1 | cut -d ":" -f 2 | cut -d "." -f 1 | xargs)"
 	speed="${speed//[[:space:]]/}"
 
 	if ((speed < 1000)); then

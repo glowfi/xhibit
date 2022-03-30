@@ -82,7 +82,7 @@ class xhibit:
 
         # TOTAL PACKAGES
         if self.image == "":
-            self.info.append(sysinfo.get_packages() + " packages")
+            self.info.append(sysinfo.get_packages())
         else:
             self.info.append(sysinfo.get_packages())
 

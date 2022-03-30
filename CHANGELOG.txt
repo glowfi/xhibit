@@ -27,3 +27,9 @@ Change Log
 - Ueberzug support 
 - Added Image crop mode
 - Display username and host
+
+7.0.0 (30/04/2022)
+---------------------
+- Print package manager name
+- Fixed a cpu speed error
+
