@@ -85,7 +85,7 @@ defaultShell() {
 
 # Get Storage info
 storageInfo() {
-	IFS=, read storageavail storageused <<<"$(df -h / | awk '/^\//{print $2","$3}')"
+	storage="$(df -h / | awk '/^\//{print $3"/"$2}')"
 }
 
 # Get Memory usage
@@ -267,5 +267,5 @@ echo "$varWm"
 echo "$uptime"
 echo "$cpu"
 echo "$gpu"
-echo "$storageused / $storageavail"
+echo "$storage"
 echo "$mem"
