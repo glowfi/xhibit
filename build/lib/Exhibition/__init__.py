@@ -146,8 +146,14 @@ class xhibit:
 
 
 if __name__ == "Exhibition":
-    pass
+    ver = "7.1.0"
+
     parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "-v",
+        action="store_true",
+        help="Prints version.",
+    )
     parser.add_argument(
         "-cs",
         type=str,
@@ -192,39 +198,43 @@ if __name__ == "Exhibition":
     )
     args = parser.parse_args()
 
-    if args.img != "":
-        obj = xhibit(
-            args.cs,
-            args.rcs,
-            args.cn,
-            args.rcn,
-            args.cpu,
-            args.gpu,
-            args.img,
-            args.ccs,
-            args.imb,
-            args.crop,
-        )
-        call_with_args = "reset"
-        os.system(call_with_args)
-        obj.colorscheme()
-        obj.specs()
-        obj.disp_image()
+    if args.v:
+        print(f"Xhibit version : {ver}")
         sys.exit()
     else:
-        obj = xhibit(
-            args.cs,
-            args.rcs,
-            args.cn,
-            args.rcn,
-            args.cpu,
-            args.gpu,
-            args.img,
-            args.ccs,
-            args.imb,
-            args.crop,
-        )
-        obj.colorscheme()
-        obj.specs()
-        obj.ascii_art()
-        sys.exit()
+        if args.img != "":
+            obj = xhibit(
+                args.cs,
+                args.rcs,
+                args.cn,
+                args.rcn,
+                args.cpu,
+                args.gpu,
+                args.img,
+                args.ccs,
+                args.imb,
+                args.crop,
+            )
+            call_with_args = "reset"
+            os.system(call_with_args)
+            obj.colorscheme()
+            obj.specs()
+            obj.disp_image()
+            sys.exit()
+        else:
+            obj = xhibit(
+                args.cs,
+                args.rcs,
+                args.cn,
+                args.rcn,
+                args.cpu,
+                args.gpu,
+                args.img,
+                args.ccs,
+                args.imb,
+                args.crop,
+            )
+            obj.colorscheme()
+            obj.specs()
+            obj.ascii_art()
+            sys.exit()
