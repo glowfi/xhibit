@@ -241,6 +241,8 @@ get_gpu() {
 
 		*) continue ;;
 		esac
+		gpu=$(echo "$gpu" | xargs)
+		_gpu="$_gpu\$$gpu "
 	done
 
 	return
@@ -266,6 +268,6 @@ echo "$shell"
 echo "$varWm"
 echo "$uptime"
 echo "$cpu"
-echo "$gpu"
+echo "$_gpu"
 echo "$storage"
 echo "$mem"
