@@ -261,13 +261,13 @@ getUptime
 get_cpu
 get_gpu
 
-echo "$distro $arch [$varInit]"
-echo "$kernel"
-echo "$varPkg"
-echo "$shell"
-echo "$varWm"
-echo "$uptime"
-echo "$cpu"
-echo "$_gpu"
-echo "$storage"
-echo "$mem"
+echo "OS : $distro $arch [$varInit]"
+echo "Kernel : $kernel"
+echo "Packages : $varPkg"
+echo "Shell : $shell"
+echo "DE/WM : $varWm"
+echo "Uptime : $uptime"
+echo "CPU : $cpu"
+echo "GPU : $_gpu"
+echo "Storage : $storage"
+echo "Memory : $mem"
