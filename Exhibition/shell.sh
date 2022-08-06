@@ -90,7 +90,11 @@ storageInfo() {
 
 # Get Memory usage
 memoryUsage() {
-	mem=$(free -h | head -2 | tail -1 | awk '{print $3"/"$2}')
+    free_output=$(free -h --si | grep Mem)
+	MEMUSED=$(echo $free_output | awk '{print $3}')
+	MEMTOT=$(echo $free_output | awk '{print $2}')
+
+	mem=$(echo "$MEMUSED/$MEMTOT")
 }
 
 # Get DE/WM
