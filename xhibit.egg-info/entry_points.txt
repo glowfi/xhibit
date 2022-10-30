@@ -1,2 +1,0 @@
-[console_scripts]
-xhibit = Exhibition.__init__:__init__
