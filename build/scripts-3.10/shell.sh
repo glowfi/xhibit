@@ -430,7 +430,7 @@ get_gpu() {
 		*) continue ;;
 		esac
 		gpu=$(echo "$gpu" | xargs)
-		_gpu="$_gpu\$$gpu "
+        _gpu=$(echo -e "$_gpu 󰭯 $gpu")
 	done
 
 	return
