@@ -436,6 +436,14 @@ get_gpu() {
 	return
 }
 
+trim() {
+    set -f
+    # shellcheck disable=2048,2086
+    set -- $*
+    printf '%s\n' "${*//[[:space:]]/}"
+    set +f
+}
+
 distroName
 distroArchitecture
 initSystem
