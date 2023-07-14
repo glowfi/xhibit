@@ -225,7 +225,7 @@ distroName() {
 
     # Get Total Pacakges
     pkgsTotal() {
-        pack=$(which {xbps-install,apk,apt,pacman,nix,dnf,rpm,dpkg,emerge} 2>&1 | grep -v "^which" | sed 's_.*/__'|head -1)
+        pack=$(which {xbps-install,apk,apt,pacman,nix,dnf,rpm,dpkg,emerge} 2>&1 | grep -v "^which" | sed 's_.*/__'|head -1|xargs)
         case ${pack} in
             "xbps-install")
                 total="$(xbps-query -l | wc -l) packages [xbps]"
