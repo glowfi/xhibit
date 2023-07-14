@@ -226,33 +226,34 @@ distroName() {
     # Get Total Pacakges
     pkgsTotal() {
         pack=$(which {xbps-install,apk,apt,pacman,nix,dnf,rpm,dpkg,emerge} 2>&1 | grep -v "^which" | sed 's_.*/__'|head -1|xargs)
+        packageManagers=$(which {xbps-install,apk,apt,pacman,nix,dnf,rpm,dpkg,emerge} 2>&1 | grep -v "^which" | sed 's_.*/__'|tr "\n" "+"|sed 's/.$//')
         case ${pack} in
             "xbps-install")
-                total="$(xbps-query -l | wc -l) packages [xbps]"
+                total="$(xbps-query -l | wc -l) packages [$packageManagers]"
                 ;;
             "apk")
-                total="$(apk search | wc -l) packages [apk]"
+                total="$(apk search | wc -l) packages [$packageManagers]"
                 ;;
             "apt")
-                total="$(apt list --installed 2>/dev/null | wc -l) packages [apt]"
+                total="$(apt list --installed 2>/dev/null | wc -l) packages [$packageManagers]"
                 ;;
             "pacman")
-                total="$(pacman -Q | wc -l) packages [pacman]"
+                total="$(pacman -Q | wc -l) packages [$packageManagers]"
                 ;;
             "nix")
-                total="$(nix-env -qa --installed "*" | wc -l) packages [nix]"
+                total="$(nix-env -qa --installed "*" | wc -l) packages [$packageManagers]"
                 ;;
             "dnf")
-                total="$(dnf list installed | wc -l) packages [dnf]"
+                total="$(dnf list installed | wc -l) packages [$packageManagers]"
                 ;;
             "rpm")
-                total="$(rpm -qa | wc -l) packages [rpm]"
+                total="$(rpm -qa | wc -l) packages [$packageManagers]"
                 ;;
             "emerge")
-                total="$(qlist -I | wc -l) packages [emerge]"
+                total="$(qlist -I | wc -l) packages [$packageManagers]"
                 ;;
             "dpkg")
-                total="$(dpkg-query -l | wc -l) packages [dpkg]"
+                total="$(dpkg-query -l | wc -l) packages [$packageManagers]"
                 ;;
             "")
                 total="Unknown"
