@@ -7,7 +7,7 @@ ind = str(shell_loc).find(".local")
 shell_loc = f"{shell_loc[0:ind-1]}/.local/bin/shell.sh"
 
 # Running Shell script
-cmd = ["sh", f"{shell_loc}"]
+cmd = ["bash", f"{shell_loc}"]
 info = subprocess.run(cmd, stdout=subprocess.PIPE).stdout.decode("utf-8")
 info = str(info).split("\n")
 info.pop()
