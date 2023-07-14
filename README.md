@@ -6,9 +6,20 @@
   <img src="https://raw.githubusercontent.com/glowfi/xhibit/main/image_support.png" />
 </p>
 
-### This is an alpha software. It requires more testing.
-
 ### INSTALLATION
+
+##### Add Path
+
+> Below is an example to add $HOME/.local/bin/ if you use **bash shell** and your **bashrc is in $HOME/.bashrc** <br>
+> Modify the location to whatever shell you are using . <br>
+> If you use **zsh,fish,dash,ksh,or other shells** as your default shell **change the syntax to add path accordingly**.
+
+```
+mkdir -p $HOME/.local/bin
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> $HOME/.bashrc
+```
+
+##### Install Python Package
 
 ```
 pip install xhibit
