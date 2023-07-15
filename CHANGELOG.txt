@@ -33,3 +33,7 @@ Change Log
 - Print package manager name
 - Fixed a cpu speed error
 
+9.8.0 (15/08/2023)
+---------------------
+- Fixed many errors related to Distro not detected properly
+- Fixed Cpu Speed
