@@ -3,6 +3,7 @@ import random
 import argparse
 import sys
 import os
+import importlib_metadata
 
 from Exhibition import ascii
 from Exhibition import sysinfo
@@ -15,7 +16,6 @@ class xhibit:
     """A utility to showff your ascii arts and sytem specs."""
 
     def __init__(self, *args):
-
         # Global default variables
         self.info = []
         self.cschemes = {
@@ -57,7 +57,6 @@ class xhibit:
         self.choice = {}
 
     def colorscheme(self):
-
         # Colorschemes
         if self.randomize_user_colors == "t":
             key = random.choice(list(colors.colors.keys()))
@@ -73,7 +72,6 @@ class xhibit:
             self.choice["theme"] = self.user_colors
 
     def specs(self):
-
         # OSNAME
         self.info.append(sysinfo.get_distro())
 
@@ -114,7 +112,6 @@ class xhibit:
         self.info.append(sysinfo.get_ram())
 
     def ascii_art(self):
-
         # Reading ASCII characters
         dragon = ascii.dragon
         monalisa = ascii.monalisa
@@ -145,8 +142,16 @@ class xhibit:
         )
 
 
+# Get Package Version
+def get_package_version(package_name):
+    try:
+        return importlib_metadata.version(package_name)
+    except importlib_metadata.PackageNotFoundError:
+        return None
+
+
 if __name__ == "Exhibition":
-    ver = "7.1.0"
+    ver = get_package_version("xhibit")
 
     parser = argparse.ArgumentParser()
     parser.add_argument(

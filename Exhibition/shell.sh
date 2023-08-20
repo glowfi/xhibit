@@ -628,40 +628,67 @@ get_cpu
 get_gpu
 
 # Handle not found types
-if [[ "$(echo "$dist" | tr -d " ")" = "" ]]; then
+handleMissingTypes() {
+	check=$(echo "$1" | tr -d " ")
+}
+
+handleMissingTypes "$dist"
+if [[ "$check" = "" ]]; then
 	dist="NA"
 fi
-if [[ "$(echo "$arch" | tr -d " ")" = "" ]]; then
-	arch=""
+
+handleMissingTypes "$arch"
+if [[ "$check" = "" ]]; then
+	arch="NA"
 fi
-if [[ "$(echo "$varInit" | tr -d " ")" = "" ]]; then
-	varInit=""
+
+handleMissingTypes "$varInit"
+if [[ "$check" = "" ]]; then
+	varInit="NA"
 fi
-if [[ "$(echo "$kernel" | tr -d " ")" = "" ]]; then
+
+handleMissingTypes "$kernel"
+if [[ "$check" = "" ]]; then
 	kernel="NA"
 fi
-if [[ "$(echo "$varPkg" | tr -d " ")" = "" ]]; then
+
+handleMissingTypes "$varPkg"
+if [[ "$check" = "" ]]; then
 	varPkg="NA"
 fi
-if [[ "$(echo "$shell" | tr -d " ")" = "" ]]; then
+
+handleMissingTypes "$shell"
+if [[ "$check" = "" ]]; then
 	shell="NA"
 fi
-if [[ "$(echo "$varWm" | tr -d " ")" = "" ]]; then
+
+handleMissingTypes "$varWm"
+if [[ "$check" = "" ]]; then
 	varWm="NA"
 fi
-if [[ "$(echo "$uptime" | tr -d " ")" = "" ]]; then
+
+handleMissingTypes "$uptime"
+if [[ "$check" = "" ]]; then
 	uptime="NA"
 fi
-if [[ "$(echo "$cpu" | tr -d " ")" = "" ]]; then
-	cpu="NA"
+
+handleMissingTypes "$_cpu"
+if [[ "$check" = "" ]]; then
+	_cpu="NA"
 fi
-if [[ "$(echo "$_gpu" | tr -d " ")" = "" ]]; then
-	_gpu=""
+
+handleMissingTypes "$_gpu"
+if [[ "$check" = "" ]]; then
+	_gpu="NA"
 fi
-if [[ "$(echo "$storage" | tr -d " ")" = "" ]]; then
+
+handleMissingTypes "$storage"
+if [[ "$check" = "" ]]; then
 	storage="NA"
 fi
-if [[ "$(echo "$mem" | tr -d " ")" = "" ]]; then
+
+handleMissingTypes "$mem"
+if [[ "$check" = "" ]]; then
 	mem="NA"
 fi
 
