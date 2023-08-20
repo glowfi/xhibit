@@ -3,26 +3,29 @@ import getpass
 import os
 
 host = os.uname()[1]
-username = "- "+getpass.getuser()
-spc=""
-spc_=""
-ch=""
-t=""
+username = "- " + getpass.getuser()
+spc = ""
+spc_ = ""
+ch = ""
+t = ""
 
-def modify(choice,info):
+
+def modify(choice, info):
     global ch
     global t
     global spc
     global spc_
     global username
-    ch="ASCII:"+choice["charac"] +" "
-    t="Theme:"+choice["theme"]
-    k=len(info[9]) + len(host) + len(username) + len("ram : ")
-    spc = "=" * len(ch + t + " ") 
-    spc_="=" * k
+    ch = "ASCII:" + choice["charac"] + " "
+    t = "Theme:" + choice["theme"]
+    k = len(info[9]) + len(host) + len(username) + len("ram : ")
+    spc = "=" * len(ch + t + " ")
+    spc_ = "=" * k
     k1 = " " * (k - (len(host) + len(username)))
     username = k1 + username
 
+
+# fmt: off
 def dragon(info,field_colors,choice):
     modify(choice,info[9])
     print("")

@@ -49,7 +49,6 @@ def print_(info, field_colors, choice, img_path):
 
 
 def display_image(image_path, info, field_colors, image_backend, cropMode, choice):
-
     # Print ascii first for ueberzug
     if image_backend == "ueberzug":
         print_(info, field_colors, choice, image_path)
