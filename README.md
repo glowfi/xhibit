@@ -166,7 +166,7 @@ xhibit -img "path/to/image/file" -imb "ueberzug"
 <em>The original ueberzug project has been abandoned by its original author.
 But there are some people who are continuing its legacy.
 You can install ueberzug by using the below commands.
-I know projects like `uebezugpp` exists but for now
+I know projects like `ueberzugpp` exists but for now
 my project supports only `kitty` and `ueberzug` backend
 to display images.</em>
 
