@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: xhibit
-Version: 9.8.2
+Version: 9.8.3
 Summary: A python script to exhibit your ascii arts and sytem specs
 Home-page: https://github.com/glowfi/xhibit
 Author: glowfi
@@ -47,7 +47,7 @@ echo 'set PATH ~/.local/bin/ $PATH' >> $HOME/.config/fish/config.fish
 pip install xhibit
 ```
 
-### DEPENDENCIES
+### Dependencies
 
 **For Ascii art only**
 
@@ -61,7 +61,7 @@ pip install xhibit
 -   xorg-xprop
 -   xorg-xwininfo
 
-### HOW TO USE
+### How To Use
 
 ```
 usage: xhibit [-h] [-cs CS] [-rcs RCS] [-ccs CCS] [-cn CN] [-rcn RCN] [-cpu CPU] [-gpu GPU] [-img IMG] [-imb IMB] [-crop CROP]
@@ -149,6 +149,8 @@ xhibit -ccs "#BF616A,#A3BE8C,#EBCB8B,#81A1C1,#B48EAD,#88C0D0,#E5E9F0,#B48EAD"
 
 ### DOWNLOAD ALL THE THEMES AND SEE WITH FZF
 
+<b>Note : FZF Required </b>
+
 ```
 git clone https://github.com/glowfi/xhibit-colorschemes
 mv ~/xhibit-colorschemes/themes ~/.cache
@@ -166,24 +168,41 @@ sh ~/.cache/xhibitCol.sh
 **Image support with ueberzug or kitty terminal.**
 
 ```
-xhibit -img image_location -imb "kitty"
+xhibit -img "path/to/image/file" -imb "kitty"
 
                 or
 
-xhibit -img image_location -imb "ueberzug"
+xhibit -img "path/to/image/file" -imb "ueberzug"
 
+```
+
+### Install ueberzug guide
+
+<em>The original ueberzug project has been abandoned by its original author.
+But there are some people who are continuing its legacy.
+You can install ueberzug by using the below commands.
+I know projects like `ueberzugpp` exists but for now
+my project supports only `kitty` and `ueberzug` backend
+to display images.</em>
+
+```sh
+git clone https://github.com/ueber-devel/ueberzug;
+cd ueberzug/
+pip install .
+cd ..
+rm -rf ueberzug
 ```
 
 **Image crop fit or fill**
 
 ```
-xhibit -img image_location -imb "kitty" -crop "fit"
-xhibit -img image_location -imb "kitty" -crop "fill"
+xhibit -img "path/to/image/file" -imb "kitty" -crop "fit"
+xhibit -img "path/to/image/file" -imb "kitty" -crop "fill"
 
                 or
 
-xhibit -img image_location -imb "ueberzug" -crop "fit"
-xhibit -img image_location -imb "ueberzug" -crop "fill"
+xhibit -img "path/to/image/file" -imb "ueberzug" -crop "fit"
+xhibit -img "path/to/image/file" -imb "ueberzug" -crop "fill"
 
 ```
 

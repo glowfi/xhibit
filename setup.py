@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="xhibit",
-    version="9.8.2",
+    version="9.8.3",
     author="glowfi",
     description="A python script to exhibit your ascii arts and sytem specs",
     long_description=long_description,
@@ -25,6 +25,6 @@ setuptools.setup(
             "xhibit=Exhibition.__init__:__init__",
         ]
     },
-    install_requires=["tcolorpy"],
+    install_requires=["tcolorpy", "importlib-metadata"],
     scripts=["./Exhibition/pos.sh", "./Exhibition/shell.sh"],
 )
