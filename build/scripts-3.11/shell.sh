@@ -400,19 +400,8 @@ get_cpu() {
 	esac
 
 	speed_dir="/sys/devices/system/cpu/cpu0/cpufreq"
-	speed_type="bios_limit"
+	speed_type="cpuinfo_max_freq"
 	hwmon_dir="/sys/class/hwmon"
-
-	# Select the right temperature file.
-	if [ -d "$hwmon_dir" ]; then
-		for temp_dir in /sys/class/hwmon/*; do
-			[[ "$(<"${temp_dir}/name")" =~ (cpu_thermal|coretemp|fam15h_power|k10temp) ]] && {
-				temp_dirs=("$temp_dir"/temp*_input)
-				temp_dir=${temp_dirs[0]}
-				break
-			}
-		done
-	fi
 
 	# Get CPU speed.
 	if [[ -d "$speed_dir" ]]; then
@@ -437,9 +426,6 @@ get_cpu() {
 			;;
 		esac
 	fi
-
-	# Get CPU temp.
-	[[ -f "$temp_dir" ]] && deg="$(($(<"$temp_dir") * 100 / 10000))"
 
 	# Get CPU cores.
 	cpu_cores="physical"
@@ -538,6 +524,8 @@ get_gpu() {
                                       print a[i]
                                   }
             }}')"
+
+	savedGPU=$(echo "$gpu_cmd" | xargs)
 	IFS=$'\n' read -d "" -ra gpus <<<"$gpu_cmd"
 
 	[[ "${gpus[0]}" == *Intel* && "${gpus[1]}" == *Intel* ]] && unset -v "gpus[0]"
@@ -592,14 +580,25 @@ get_gpu() {
 
 		*) continue ;;
 		esac
+
+		### Keep appending the GPU(s) to _gpu
+
 		gpu=$(echo "$gpu" | xargs)
 		if [[ "$gpu" != "" ]]; then
 			_gpu="$_gpu 󰭯 $gpu"
-		else
-			_gpu="NA"
 		fi
 	done
 
+	### Handle GPU Logic
+
+	if [[ "$(echo "$_gpu" | xargs)" == "" ]]; then
+
+		if [[ "$savedGPU" != "" ]]; then
+			_gpu="$savedGPU"
+		else
+			_gpu="NA"
+		fi
+	fi
 	return
 }
 
