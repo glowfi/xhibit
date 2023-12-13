@@ -6,6 +6,10 @@
   <img src="https://raw.githubusercontent.com/glowfi/xhibit/main/image_support.png" />
 </p>
 
+### COMPATIBILITY
+
+**Works on any linux based distro.**
+
 ### INSTALLATION
 
 ### Add Path
@@ -79,17 +83,10 @@ options:
 -   fairy
 -   dragon
 
-**Default colorschemes**
-
--   gruvbox
--   dracula
-
-**List of all Colorscheme available**
+**Colorscheme available**
 
 -   **212 colorschemes present**
 -   **See the commands below on how to list all colorschemes present.**
-
-**See this [Colorscheme list](https://raw.githubusercontent.com/glowfi/xhibit-colorschemes/main/colorscheme.txt)**
 
 ### Example commands
 
@@ -117,15 +114,17 @@ xhibit -rcs t -rcn t
 
 ![example4](egyptian.png)
 
-**Pick colorscheme**
+### Colorschemes
 
-### List all colorschemes available
+Check **[Colorscheme list](https://raw.githubusercontent.com/glowfi/xhibit-colorschemes/main/colorscheme.txt)**
+
+> List all colorschemes available
 
 ```sh
 xhibit -lcs 'all'
 ```
 
-Check **[Colorscheme list](https://raw.githubusercontent.com/glowfi/xhibit-colorschemes/main/colorscheme.txt)**
+> Picking a colorscheme
 
 ```sh
 xhibit -cs "Eighties.dark" -cn dragon
@@ -136,8 +135,8 @@ xhibit -cs "Eighties.dark" -cn dragon
 **To give custom user colors**
 
 You can give custom user colors to xhibit to display text.
-Must give all the 8 colors in hex format just as shown below.
-Nord Colorscheme colors are used below as example.
+Must give all the 8 colors in hex format seperated by a comma just
+as shown below.Nord Colorscheme colors are used below as example.
 
 ```sh
 xhibit -ccs "#BF616A,#A3BE8C,#EBCB8B,#81A1C1,#B48EAD,#88C0D0,#E5E9F0,#B48EAD"
@@ -145,34 +144,7 @@ xhibit -ccs "#BF616A,#A3BE8C,#EBCB8B,#81A1C1,#B48EAD,#88C0D0,#E5E9F0,#B48EAD"
 
 ![example0](./custom_colorscheme.png)
 
-### DOWNLOAD ALL THE THEMES AND SEE WITH FZF
-
-<b>Note : FZF Required </b>
-
-```sh
-git clone https://github.com/glowfi/xhibit-colorschemes
-mv ~/xhibit-colorschemes/themes ~/.cache
-rm -rf xhibit-colorschemes
-ls ~/.cache/themes| fzf | xargs -I {} cat ~/.cache/themes/{} | xargs | tr " " "," | xargs -I {} xhibit -rcn t  -ccs "{}"
-```
-
-### Try all colorscheme in 1 second interval
-
-```sh
-wget https://raw.githubusercontent.com/glowfi/xhibit-colorschemes/main/run.sh -O ~/.cache/xhibitCol.sh
-sh ~/.cache/xhibitCol.sh
-```
-
-**Image support with ueberzug or kitty terminal.**
-
-```sh
-xhibit -img "path/to/image/file" -imb "kitty"
-
-                or
-
-xhibit -img "path/to/image/file" -imb "ueberzug"
-
-```
+### Displaying Images
 
 ### Install ueberzug guide
 
@@ -189,6 +161,17 @@ cd ueberzug/
 pip install .
 cd ..
 rm -rf ueberzug
+```
+
+**Image support with ueberzug or kitty terminal.**
+
+```sh
+xhibit -img "path/to/image/file" -imb "kitty"
+
+                or
+
+xhibit -img "path/to/image/file" -imb "ueberzug"
+
 ```
 
 **Image crop fit or fill**
