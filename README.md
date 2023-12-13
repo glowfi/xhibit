@@ -8,9 +8,11 @@
 
 ### INSTALLATION
 
-##### Add Path
+### Add Path
 
-> Example to add ~/.local/bin/ in the PATH Variable <br>
+**Note : Important**
+
+> Must add ~/.local/bin/ in the PATH Variable <br>
 
 <b>POSIX based shell (bash,zsh,dash,....) </b>
 
@@ -26,7 +28,7 @@ echo 'export PATH=~/.local/bin:$PATH' >> $HOME/.bashrc
 echo 'set PATH ~/.local/bin/ $PATH' >> $HOME/.config/fish/config.fish
 ```
 
-##### Install Python Package
+### Install Python Package
 
 ```
 pip install xhibit
@@ -49,10 +51,12 @@ pip install xhibit
 ### How To Use
 
 ```
-usage: xhibit [-h] [-cs CS] [-rcs RCS] [-ccs CCS] [-cn CN] [-rcn RCN] [-cpu CPU] [-gpu GPU] [-img IMG] [-imb IMB] [-crop CROP]
+usage: xhibit [-h] [-v] [-lcs LCS] [-cs CS] [-rcs RCS] [-ccs CCS] [-cn CN] [-rcn RCN] [-cpu CPU] [-gpu GPU] [-img IMG] [-imb IMB] [-crop CROP]
 
 options:
   -h, --help  show this help message and exit
+  -v          Prints version.
+  -lcs LCS    List all colorschemes available [Pass 'all' as argument like this -> xhibit -lcs 'all']
   -cs CS      Colorscheme to display.
   -rcs RCS    Randomize Colorschemes [t or f].
   -ccs CCS    Give custom colorschemem of 8 colors like this "#BF616A,#A3BE8C,#EBCB8B,#81A1C1,#B48EAD,#88C0D0,#E5E9F0,#B48EAD".
@@ -80,15 +84,18 @@ options:
 -   gruvbox
 -   dracula
 
-**Extra Colorscheme List present inside this program**
+**List of all Colorscheme available**
 
-**[Colorscheme list](https://raw.githubusercontent.com/glowfi/xhibit-colorschemes/main/colorscheme.txt)**
+-   **212 colorschemes present**
+-   **See the commands below on how to list all colorschemes present.**
+
+**See this [Colorscheme list](https://raw.githubusercontent.com/glowfi/xhibit-colorschemes/main/colorscheme.txt)**
 
 ### Example commands
 
 **To Choose gruvbox Colorscheme and casper**
 
-```
+```sh
 xhibit -cs gruvbox -cn casper
 ```
 
@@ -96,7 +103,7 @@ xhibit -cs gruvbox -cn casper
 
 **To Choose dracula Colorscheme and fairy**
 
-```
+```sh
 xhibit -cs dracula -cn fairy
 ```
 
@@ -104,7 +111,7 @@ xhibit -cs dracula -cn fairy
 
 **To randomize colorscheme and character**
 
-```
+```sh
 xhibit -rcs t -rcn t
 ```
 
@@ -112,9 +119,15 @@ xhibit -rcs t -rcn t
 
 **Pick colorscheme**
 
+### List all colorschemes available
+
+```sh
+xhibit -lcs 'all'
+```
+
 Check **[Colorscheme list](https://raw.githubusercontent.com/glowfi/xhibit-colorschemes/main/colorscheme.txt)**
 
-```
+```sh
 xhibit -cs "Eighties.dark" -cn dragon
 ```
 
@@ -126,7 +139,7 @@ You can give custom user colors to xhibit to display text.
 Must give all the 8 colors in hex format just as shown below.
 Nord Colorscheme colors are used below as example.
 
-```
+```sh
 xhibit -ccs "#BF616A,#A3BE8C,#EBCB8B,#81A1C1,#B48EAD,#88C0D0,#E5E9F0,#B48EAD"
 ```
 
@@ -136,7 +149,7 @@ xhibit -ccs "#BF616A,#A3BE8C,#EBCB8B,#81A1C1,#B48EAD,#88C0D0,#E5E9F0,#B48EAD"
 
 <b>Note : FZF Required </b>
 
-```
+```sh
 git clone https://github.com/glowfi/xhibit-colorschemes
 mv ~/xhibit-colorschemes/themes ~/.cache
 rm -rf xhibit-colorschemes
@@ -145,14 +158,14 @@ ls ~/.cache/themes| fzf | xargs -I {} cat ~/.cache/themes/{} | xargs | tr " " ",
 
 ### Try all colorscheme in 1 second interval
 
-```
+```sh
 wget https://raw.githubusercontent.com/glowfi/xhibit-colorschemes/main/run.sh -O ~/.cache/xhibitCol.sh
 sh ~/.cache/xhibitCol.sh
 ```
 
 **Image support with ueberzug or kitty terminal.**
 
-```
+```sh
 xhibit -img "path/to/image/file" -imb "kitty"
 
                 or
@@ -180,7 +193,7 @@ rm -rf ueberzug
 
 **Image crop fit or fill**
 
-```
+```sh
 xhibit -img "path/to/image/file" -imb "kitty" -crop "fit"
 xhibit -img "path/to/image/file" -imb "kitty" -crop "fill"
 

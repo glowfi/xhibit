@@ -4,6 +4,7 @@ import argparse
 import sys
 import os
 import importlib_metadata
+from tcolorpy import tcolor
 
 from Exhibition import ascii
 from Exhibition import sysinfo
@@ -150,14 +151,37 @@ def get_package_version(package_name):
         return None
 
 
-if __name__ == "Exhibition":
-    ver = get_package_version("xhibit")
+# Colorschemes list
+def list_colorschemes():
+    print("List of all available colorschemes :\n")
+    cdict = colors.colors
+    for color in cdict:
+        text1 = ""
+        text2 = ""
+        text3 = ""
+        tmp = "demo text"
+        for ind, hex in enumerate(cdict[color]):
+            text1 += tcolor(f"■ ", color=hex)
+            text2 += tcolor(f"{tmp[ind]}", color=hex)
+            text3 += tcolor(f"{tmp[ind].upper()}", color=hex)
+        text1 += f" {color}"
+        print(text1)
+        print(text2 + "t", "  ", text3 + "T")
+        print("\n")
 
+
+if __name__ == "Exhibition":
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "-v",
         action="store_true",
         help="Prints version.",
+    )
+    parser.add_argument(
+        "-lcs",
+        type=str,
+        default="",
+        help="List all colorschemes available [Pass 'all' as argument like this -> xhibit -lcs 'all']",
     )
     parser.add_argument(
         "-cs",
@@ -204,7 +228,11 @@ if __name__ == "Exhibition":
     args = parser.parse_args()
 
     if args.v:
+        ver = get_package_version("xhibit")
         print(f"Xhibit version : {ver}")
+        sys.exit()
+    if args.lcs == "all":
+        list_colorschemes()
         sys.exit()
     else:
         if args.img != "":
