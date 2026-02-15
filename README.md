@@ -2,9 +2,9 @@
 
 # 🎨 XHIBIT
 
-**Exhibit your ASCII art and system specs directly in the terminal**
-
 <img src="https://raw.githubusercontent.com/glowfi/xhibit/main/image_support.png" width="720"/>
+
+**Exhibit your ASCII art and system specs directly in the terminal**
 
 ![Python](https://img.shields.io/badge/python-3.5+-blue?logo=python)
 ![Linux](https://img.shields.io/badge/platform-linux-success?logo=linux)
