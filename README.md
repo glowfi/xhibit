@@ -1,190 +1,232 @@
-### XHIBIT
+<div align="center">
 
-> **Exhibit your ASCII art and system specs**
+# 🎨 XHIBIT
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/glowfi/xhibit/main/image_support.png" />
-</p>
+**Exhibit your ASCII art and system specs directly in the terminal**
 
-### COMPATIBILITY
+<img src="https://raw.githubusercontent.com/glowfi/xhibit/main/image_support.png" width="720"/>
 
-**Works on any linux based distro.**
+![Python](https://img.shields.io/badge/python-3.5+-blue?logo=python)
+![Linux](https://img.shields.io/badge/platform-linux-success?logo=linux)
+![Terminal](https://img.shields.io/badge/interface-terminal-black)
+![License](https://img.shields.io/github/license/glowfi/xhibit)
 
-### INSTALLATION
+</div>
 
-### Add Path
+---
 
-**Note : Important**
+## ✨ Overview
 
-> Must add ~/.local/bin/ in the PATH Variable <br>
+**XHIBIT** is a customizable terminal showcase tool that displays:
 
-<b>POSIX based shell (bash,zsh,dash,....) </b>
+- 🖼 ASCII characters
+- 🎨 Colorschemes
+- 💻 System specifications
+- 🖼 Optional image previews
 
-<em>Change bashrc to your repective shell's rc</em>
+Designed for terminal enthusiasts who want a visually expressive system display.
 
+---
+
+## 🐧 Compatibility
+
+Works on **any Linux-based distribution**.
+
+---
+
+## 🚀 Installation
+
+### 1️⃣ Add local bin to PATH (Required)
+
+#### POSIX shells (bash / zsh / dash)
+
+```bash
+echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
 ```
-echo 'export PATH=~/.local/bin:$PATH' >> $HOME/.bashrc
+
+> Change `.bashrc` to your shell’s rc file if needed.
+
+#### Fish shell
+
+```fish
+echo 'set PATH ~/.local/bin $PATH' >> ~/.config/fish/config.fish
 ```
 
-<b>Fish shell </b>
+Restart your shell afterwards.
 
-```
-echo 'set PATH ~/.local/bin/ $PATH' >> $HOME/.config/fish/config.fish
-```
+---
 
-### Install Python Package
+### 2️⃣ Install Package
 
-```
+```bash
 pip install xhibit
 ```
 
-### Dependencies
+---
 
-**For Ascii art only**
+## 📦 Dependencies
 
--   **python 3.5+**
+### ASCII Mode
 
-**For Image display**
+- Python ≥ 3.5
 
--   **kitty terminal** or **ueberzug**
--   xorg-xdpyinfo
--   xdotool
--   xorg-xprop
--   xorg-xwininfo
+### Image Display
 
-### How To Use
+- kitty terminal **or** ueberzug
+- xorg-xdpyinfo
+- xdotool
+- xorg-xprop
+- xorg-xwininfo
 
-```
-usage: xhibit [-h] [-v] [-lcs LCS] [-cs CS] [-rcs RCS] [-ccs CCS] [-cn CN] [-rcn RCN] [-cpu CPU] [-gpu GPU] [-img IMG] [-imb IMB] [-crop CROP]
+---
 
-options:
-  -h, --help  show this help message and exit
-  -v          Prints version.
-  -lcs LCS    List all colorschemes available [Pass 'all' as argument like this -> xhibit -lcs 'all']
-  -cs CS      Colorscheme to display.
-  -rcs RCS    Randomize Colorschemes [t or f].
-  -ccs CCS    Give custom colorschemem of 8 colors like this "#BF616A,#A3BE8C,#EBCB8B,#81A1C1,#B48EAD,#88C0D0,#E5E9F0,#B48EAD".
-  -cn CN      Specify Character name [monalisa,egyptian,fairy,casper,dragon].
-  -rcn RCN    Randomize Characters [t or f].
-  -cpu CPU    Mention Cpu [Custom Cpu name].
-  -gpu GPU    Mention Gpu [Custom Gpu name].
-  -img IMG    Image path.
-  -imb IMB    Mention Image backend [kitty or ueberzug].
-  -crop CROP  Mention crop type [fit or fill].
+## 🧠 Usage
+
+```bash
+xhibit [options]
 ```
 
-### ASCII characters
+### Core Options
 
-**ASCII Characters available**
+| Option  | Description                      |
+| ------- | -------------------------------- |
+| `-v`    | Show version                     |
+| `-cs`   | Choose colorscheme               |
+| `-rcs`  | Random colorscheme               |
+| `-ccs`  | Custom colors (8 hex values)     |
+| `-cn`   | Choose ASCII character           |
+| `-rcn`  | Random character                 |
+| `-cpu`  | Custom CPU name                  |
+| `-gpu`  | Custom GPU name                  |
+| `-img`  | Display image                    |
+| `-imb`  | Image backend (kitty / ueberzug) |
+| `-crop` | Image crop mode (fit / fill)     |
 
--   monalisa
--   egyptian
--   casper
--   fairy
--   dragon
+---
 
-**Colorscheme available**
+## 🎭 ASCII Characters
 
--   **212 colorschemes present**
--   **See the commands below on how to list all colorschemes present.**
+Available characters:
 
-### Example commands
+- monalisa
+- egyptian
+- casper
+- fairy
+- dragon
 
-**To Choose gruvbox Colorscheme and casper**
+---
 
-```sh
+## 🎨 Colorschemes
+
+- **212 built-in colorschemes**
+
+List all:
+
+```bash
+xhibit -lcs all
+```
+
+Full list:
+[https://raw.githubusercontent.com/glowfi/xhibit-colorschemes/main/colorscheme.txt](https://raw.githubusercontent.com/glowfi/xhibit-colorschemes/main/colorscheme.txt)
+
+---
+
+## 🧪 Examples
+
+### Gruvbox + Casper
+
+```bash
 xhibit -cs gruvbox -cn casper
 ```
 
-![example2](casper.png)
+![example](casper.png)
 
-**To Choose dracula Colorscheme and fairy**
+---
 
-```sh
+### Dracula + Fairy
+
+```bash
 xhibit -cs dracula -cn fairy
 ```
 
-![example3](fairy.png)
+![example](fairy.png)
 
-**To randomize colorscheme and character**
+---
 
-```sh
+### Random Everything
+
+```bash
 xhibit -rcs t -rcn t
 ```
 
-![example4](egyptian.png)
+![example](egyptian.png)
 
-### Colorschemes
+---
 
-Check **[Colorscheme list](https://raw.githubusercontent.com/glowfi/xhibit-colorschemes/main/colorscheme.txt)**
+### Custom Colorscheme
 
-> List all colorschemes available
-
-```sh
-xhibit -lcs 'all'
-```
-
-> Picking a colorscheme
-
-```sh
-xhibit -cs "Eighties.dark" -cn dragon
-```
-
-![example4](pick_colorscheme.png)
-
-**To give custom user colors**
-
-You can give custom user colors to xhibit to display text.
-Must give all the 8 colors in hex format seperated by a comma just
-as shown below.Nord Colorscheme colors are used below as example.
-
-```sh
+```bash
 xhibit -ccs "#BF616A,#A3BE8C,#EBCB8B,#81A1C1,#B48EAD,#88C0D0,#E5E9F0,#B48EAD"
 ```
 
-![example0](./custom_colorscheme.png)
+![example](./custom_colorscheme.png)
 
-### Displaying Images
+---
 
-### Install ueberzug guide
+## 🖼 Image Display
 
-<em>The original ueberzug project has been abandoned by its original author.
-But there are some people who are continuing its legacy.
-You can install ueberzug by using the below commands.
-I know projects like `ueberzugpp` exists but for now
-my project supports only `kitty` and `ueberzug` backend
-to display images.</em>
+Supports image previews using:
 
-```sh
-git clone https://github.com/ueber-devel/ueberzug;
-cd ueberzug/
+- `kitty` graphics protocol
+- `ueberzug`
+
+### Install ueberzug
+
+```bash
+git clone https://github.com/ueber-devel/ueberzug
+cd ueberzug
 pip install .
 cd ..
 rm -rf ueberzug
 ```
 
-**Image support with ueberzug or kitty terminal.**
+---
 
-```sh
-xhibit -img "path/to/image/file" -imb "kitty"
+### Display Image
 
-                or
-
-xhibit -img "path/to/image/file" -imb "ueberzug"
-
+```bash
+xhibit -img "path/to/image" -imb kitty
 ```
 
-**Image crop fit or fill**
+or
 
-```sh
-xhibit -img "path/to/image/file" -imb "kitty" -crop "fit"
-xhibit -img "path/to/image/file" -imb "kitty" -crop "fill"
-
-                or
-
-xhibit -img "path/to/image/file" -imb "ueberzug" -crop "fit"
-xhibit -img "path/to/image/file" -imb "ueberzug" -crop "fill"
-
+```bash
+xhibit -img "path/to/image" -imb ueberzug
 ```
 
-## ![example1](image_support.png)
+---
+
+### Crop Modes
+
+```bash
+xhibit -crop fit
+xhibit -crop fill
+```
+
+---
+
+<img src="image_support.png"/>
+
+---
+
+## 🤝 Contributing
+
+Contributions and improvements are welcome.
+
+Small focused PRs preferred.
+
+---
+
+## 📄 License
+
+GPL-3.0
